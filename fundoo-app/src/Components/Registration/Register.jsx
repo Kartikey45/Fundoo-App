@@ -3,7 +3,7 @@ import "./Register.scss";
 import Button from "react-bootstrap/Button";
 import { makeStyles } from "@material-ui/core/styles";
 import TextField from "@material-ui/core/TextField";
-
+import { Link } from "react-router-dom";
 
 export default class Register extends React.Component {
   constructor() {
@@ -28,13 +28,15 @@ export default class Register extends React.Component {
             </div>
 
             <div className="InputPanel">
-              <TextField className = "textSize"
+              <TextField
+                className="textSize"
                 id="outlined-basic"
                 label="First Name"
                 variant="outlined"
                 size="small"
               />
-              <TextField className = "textSize"
+              <TextField
+                className="textSize"
                 id="outlined-basic"
                 label="Last Name"
                 variant="outlined"
@@ -44,7 +46,7 @@ export default class Register extends React.Component {
             <div className="InputPanel1">
               <TextField
                 id="outlined-basic"
-                label="E mail"
+                label="E-mail"
                 variant="outlined"
                 fullWidth
                 size="small"
@@ -54,17 +56,28 @@ export default class Register extends React.Component {
               <h7>You can use letters , numbers and periods</h7>
             </div>
             <div className="Passwordfield">
-              <TextField className = "textSize"
+              <TextField
+                className="textSize"
                 id="outlined-basic"
                 label="Password"
                 variant="outlined"
                 size="small"
+                ref="password"
+                hintText="Password"
+                floatingLabelText="Password"
+                type="password"
               />
-              <TextField className = "textSize"
+
+              <TextField
+                className="textSize"
                 id="outlined-basic"
                 label="Confirm Password"
                 variant="outlined"
                 size="small"
+                ref="password"
+                hintText="Password"
+                floatingLabelText="Password"
+                type="password"
               />
             </div>
             <div className="flex">
@@ -73,12 +86,19 @@ export default class Register extends React.Component {
               </h7>
             </div>
             <div className="buttons">
-              <Button variant="primary">Sign Up</Button>
+            <Link  to ="/signin">
               <Button variant="primary">Login</Button>
+              </Link>
+              <Button variant="primary">Submit</Button>
             </div>
           </div>
-          <div className = "image">
-          <img src="https://ssl.gstatic.com/accounts/signup/glif/account.svg" alt="" width="244" height="244"></img>
+          <div className="image">
+            <img
+              src="https://ssl.gstatic.com/accounts/signup/glif/account.svg"
+              alt=""
+              width="244"
+              height="244"
+            ></img>
           </div>
         </div>
       </div>
