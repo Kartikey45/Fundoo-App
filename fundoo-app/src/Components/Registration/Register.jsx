@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import "./Register.scss";
 import Button from "react-bootstrap/Button";
-import { makeStyles } from "@material-ui/core/styles";
+//import { makeStyles } from "@material-ui/core/styles";
 import TextField from "@material-ui/core/TextField";
 import { Link } from "react-router-dom";
 
@@ -34,6 +34,7 @@ export default class Register extends React.Component {
                 label="First Name"
                 variant="outlined"
                 size="small"
+                required
               />
               <TextField
                 className="textSize"
@@ -41,6 +42,7 @@ export default class Register extends React.Component {
                 label="Last Name"
                 variant="outlined"
                 size="small"
+                required
               />
             </div>
             <div className="InputPanel1">
@@ -50,6 +52,7 @@ export default class Register extends React.Component {
                 variant="outlined"
                 fullWidth
                 size="small"
+                required
               />
             </div>
             <div className="flex">
@@ -66,6 +69,7 @@ export default class Register extends React.Component {
                 hintText="Password"
                 floatingLabelText="Password"
                 type="password"
+                required
               />
 
               <TextField
@@ -78,6 +82,7 @@ export default class Register extends React.Component {
                 hintText="Password"
                 floatingLabelText="Password"
                 type="password"
+                required
               />
             </div>
             <div className="flex">
