@@ -38,7 +38,7 @@ export default class login extends React.Component {
             />
           </div>
           <br />
-          <div className="forgetText"><h6>Forget password ?</h6></div>
+          <div className="forgetText"><Link to = "/forgetPass"><h6>Forget password ?</h6></Link></div>
           <div className="buttonForLogin">
             <Link to="/signup">
               <h6>Create account</h6>
