@@ -10,7 +10,7 @@ export default class login extends React.Component {
     super();
   }
 
-  render() { 
+  render() {
     return (
       <div className="outerCard">
         <div className="loginCard">
@@ -37,10 +37,12 @@ export default class login extends React.Component {
               type="password"
             />
           </div>
+          <br />
+          <div className="forgetText"><h6>Forget password ?</h6></div>
           <div className="buttonForLogin">
-            <Link  to ="/signup">
-              <Button variant="primary">Sign Up</Button>
-              </Link>
+            <Link to="/signup">
+              <h6>Create account</h6>
+            </Link>
             <Button variant="primary">Login</Button>
           </div>
         </div>

@@ -87,7 +87,7 @@ export default class Register extends React.Component {
             </div>
             <div className="buttons">
             <Link  to ="/signin">
-              <Button variant="primary">Login</Button>
+              <h6>Sign in instead</h6>
               </Link>
               <Button variant="primary">Submit</Button>
             </div>
