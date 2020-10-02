@@ -6,6 +6,7 @@ import forgetPassword from "./Components/ForgetPassword/forgetPassword";
 import resetPassword from "./Components/ResetPassword/resetPassword";
 import { Route, Switch, BrowserRouter } from "react-router-dom";
 
+
 function App() {
   return (
     <BrowserRouter>
@@ -15,6 +16,7 @@ function App() {
           <Route path="/signin" component={login} />
           <Route path="/forgetPass" component={forgetPassword} />
           <Route path="/resetPass" component={resetPassword} />
+          
         </Switch>
       </div>
     </BrowserRouter>

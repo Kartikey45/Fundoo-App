@@ -83,3 +83,9 @@
   color: rgb(66, 133, 244)
 }
 
+@media screen and (max-width: 600px)
+{
+  .loginCard {
+    border: none;
+  }
+}
