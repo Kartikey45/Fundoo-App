@@ -6,9 +6,48 @@ import TextField from "@material-ui/core/TextField";
 import { Link } from "react-router-dom";
 
 export default class login extends React.Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
+    this.state = {
+      email: null,
+      password: null,
+
+      formErrors: {
+        errorEmail: "",
+        errorPassword: "",
+      },
+    };
   }
+
+  onValueChange = (e) => {
+    let emailValidation = /^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
+    let passwordValidation = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
+    this.setState({
+      [e.target.name]: e.target.value,
+    });
+    // nameValidation.test(e.target.value)
+    // console.log(nameValidation.test(e.target.value));
+
+    let inputs = this.state.formErrors;
+
+    switch (e.target.name) {
+      case "email":
+        inputs.errorEmail =
+          emailValidation.test(e.target.value) === true
+            ? ""
+            : "Enter Valid email";
+        break;
+      case "password":
+        inputs.errorPassword =
+          passwordValidation.test(e.target.value) === true
+            ? ""
+            : "Enter Valid password";
+        break;
+
+      default:
+        break;
+    }
+  };
 
   render() {
     return (
@@ -26,8 +65,20 @@ export default class login extends React.Component {
             <h5>Sign In</h5>
           </div>
           <div className="input1">
-            <TextField id="outlined-basic" label="E-mail" variant="outlined" required />
-            <TextField
+            <div className="inputEmail">
+              <TextField
+              id="outlined-basic"
+              label="E-mail"
+              variant="outlined"
+              required
+              fullWidth
+              name="email"
+              onChange={this.onValueChange}
+            />
+            <span className="errorMessage">{this.state.formErrors.errorEmail}</span>
+            </div>
+            
+            <div className="inputEmail"><TextField
               id="outlined-basic"
               label="Password"
               variant="outlined"
@@ -36,10 +87,20 @@ export default class login extends React.Component {
               floatingLabelText="Password"
               type="password"
               required
+              fullWidth
+              name="password"
+              onChange={this.onValueChange}
             />
+            <span className="errorMessage">{this.state.formErrors.errorPassword}</span>
+            </div>
+            
           </div>
           <br />
-          <div className="forgetText"><Link to = "/forgetPass"><h6>Forget password ?</h6></Link></div>
+          <div className="forgetText">
+            <Link to="/forgetPass">
+              <h6>Forget password ?</h6>
+            </Link>
+          </div>
           <div className="buttonForLogin">
             <Link to="/signup">
               <h6>Create account</h6>
