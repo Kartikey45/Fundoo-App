@@ -5,9 +5,32 @@ import TextField from "@material-ui/core/TextField";
 //import { Link } from "react-router-dom";
 
 export default class forgetPassword extends React.Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
+    this.state = {
+      email : null,
+
+      formErrors: {
+        errorEmail : "",
+      },
+    };
   }
+
+  onValueChange = (e) => {
+    let emailValidation = /^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
+    
+    this.setState({
+      [e.target.name]: e.target.value,
+    });
+    // nameValidation.test(e.target.value)
+    // console.log(nameValidation.test(e.target.value));
+
+    let inputs = this.state.formErrors;
+    inputs.errorEmail =
+        emailValidation.test(e.target.value) === true
+            ? ""
+            : "Enter valid email";
+  };
 
   render() {
     return (
@@ -28,12 +51,19 @@ export default class forgetPassword extends React.Component {
             <h6>Enter your phone number or recovery email</h6>
           </div>
           <div className="fpinput">
+            <div className="fpEmail">
             <TextField
               id="outlined-basic"
-              label="Phone number or email"
+              label="Email"
+              name="email"
               variant="outlined"
               required
+              fullWidth
+              onChange={this.onValueChange}
             />
+            <span className="errorMessage">{this.state.formErrors.errorEmail}</span>
+            </div>
+            
           </div>
           <div className="fpbutton">
             <Button variant="primary">Next</Button>

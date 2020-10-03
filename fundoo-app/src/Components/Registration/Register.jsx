@@ -180,7 +180,6 @@ export default class Register extends React.Component {
                 <span className="errorMessage">{this.state.formErrors.errorPassword}</span>
               </div>
               
-              
               <div className="buttons">
                 <Link to="/signin">
                   <h6>Sign in instead</h6>

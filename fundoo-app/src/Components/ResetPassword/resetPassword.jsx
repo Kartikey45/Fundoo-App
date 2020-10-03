@@ -6,9 +6,48 @@ import TextField from "@material-ui/core/TextField";
 //import { Link } from "react-router-dom";
 
 export default class resetPassword extends React.Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
+    this.state = {
+      password: null,
+      confirmPassword: null,
+
+      formErrors: {
+        errorPassword: "",
+        errorConfirmPassword: "",
+      },
+    };
   }
+
+  onValueChange = (e) => {
+    
+    let passwordValidation = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
+    this.setState({
+      [e.target.name]: e.target.value,
+    });
+    // nameValidation.test(e.target.value)
+    // console.log(nameValidation.test(e.target.value));
+
+    let inputs = this.state.formErrors;
+
+    switch (e.target.name) {
+      case "password":
+        inputs.errorPassword =
+        passwordValidation.test(e.target.value) === true
+            ? ""
+            : "Enter valid password";
+        break;
+      case "confirmPassword":
+        inputs.errorConfirmPassword =
+          passwordValidation.test(e.target.value) === true
+            ? ""
+            : "Enter valid password";
+        break;
+
+      default:
+        break;
+    }
+  };
 
   render() {
     return (
@@ -37,8 +76,12 @@ export default class resetPassword extends React.Component {
               hintText="Password"
               floatingLabelText="Password"
               type="password"
+              name = "password"
+              fullWidth
               required
+              onChange={this.onValueChange}
             />
+            <span className="errorMessage">{this.state.formErrors.errorPassword}</span>
           </div>
           <div className="rpinput2">
             <TextField
@@ -49,8 +92,12 @@ export default class resetPassword extends React.Component {
               hintText="Password"
               floatingLabelText="Password"
               type="password"
+              name="confirmPassword"
+              fullWidth
               required
+              onChange={this.onValueChange}
             />
+            <span className="errorMessage">{this.state.formErrors.errorConfirmPassword}</span>
           </div>
           <div className="rpbutton">
             <Button variant="primary">Reset</Button>
