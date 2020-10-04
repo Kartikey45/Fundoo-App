@@ -4,6 +4,7 @@ import Button from "react-bootstrap/Button";
 //import { makeStyles } from "@material-ui/core/styles";
 import TextField from "@material-ui/core/TextField";
 import { Link } from "react-router-dom";
+import UserService from "../../Services/UserService";
 
 export default class login extends React.Component {
   constructor(props) {
@@ -48,6 +49,18 @@ export default class login extends React.Component {
         break;
     }
   };
+
+  onSubmit = (event) =>{
+    event.preventDefault();
+    let userData = {
+      email: this.state.email,
+      password: this.state.password,
+      cartId:"",
+    };
+    UserService.login(userData).then((data) => {
+      console.log(data);
+    });
+  }
 
   render() {
     return (
@@ -105,7 +118,7 @@ export default class login extends React.Component {
             <Link to="/signup">
               <h6>Create account</h6>
             </Link>
-            <Button variant="primary">Login</Button>
+            <Button type="submit" onClick={this.onSubmit} variant="primary">Login</Button>
           </div>
         </div>
       </div>
