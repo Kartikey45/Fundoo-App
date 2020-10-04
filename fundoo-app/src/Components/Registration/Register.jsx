@@ -4,6 +4,7 @@ import Button from "react-bootstrap/Button";
 //import { makeStyles } from "@material-ui/core/styles";
 import TextField from "@material-ui/core/TextField";
 import { Link } from "react-router-dom";
+import UserService from "../../Services/UserService";
 
 export default class Register extends React.Component {
   constructor(props) {
@@ -72,6 +73,20 @@ export default class Register extends React.Component {
     }
   };
 
+  onSubmit = (event) => {
+    event.preventDefault();
+    let userData = {
+      firstName: this.state.firstName,
+      lastName: this.state.lastName,
+      email: this.state.email,
+      password: this.state.password,
+      service: "advance",
+    };
+    UserService.register(userData).then((data) => {
+      console.log(data);
+    });
+  }
+
   render() {
     return (
       <div className="Manipulation">
@@ -101,7 +116,9 @@ export default class Register extends React.Component {
                     required
                     onChange={this.onValueChange}
                   />
-                  <span className="errorMessage">{this.state.formErrors.errorFirstName}</span>
+                  <span className="errorMessage">
+                    {this.state.formErrors.errorFirstName}
+                  </span>
                 </div>
                 <div className="textSize">
                   <TextField
@@ -114,7 +131,9 @@ export default class Register extends React.Component {
                     required
                     onChange={this.onValueChange}
                   />
-                  <span className="errorMessage">{this.state.formErrors.errorLastName}</span>
+                  <span className="errorMessage">
+                    {this.state.formErrors.errorLastName}
+                  </span>
                 </div>
               </div>
               <div className="InputPanel1">
@@ -128,15 +147,15 @@ export default class Register extends React.Component {
                   required
                   onChange={this.onValueChange}
                 />
-                
               </div>
-            
+
               <div className="flex1">
-                <h7>You can use letters , numbers and periods</h7>
-                <span className="errorMessage">{this.state.formErrors.errorEmail}</span>
+                {/* <h7>You can use letters , numbers and periods</h7> */}
+                <span className="errorMessage">
+                  {this.state.formErrors.errorEmail}
+                </span>
               </div>
-              
-              
+
               <div className="Passwordfield">
                 <div>
                   <TextField
@@ -153,7 +172,6 @@ export default class Register extends React.Component {
                     required
                     onChange={this.onValueChange}
                   />
-                  
                 </div>
                 <div className="reg-conf-pass">
                   <TextField
@@ -170,21 +188,22 @@ export default class Register extends React.Component {
                     required
                     onChange={this.onValueChange}
                   />
-                  
                 </div>
               </div>
               <div className="flex">
-                <h7>
+                {/* <h7>
                   Use 8 or more characters mix with letters, numbers & symbols
-                </h7>
-                <span className="errorMessage">{this.state.formErrors.errorPassword}</span>
+                </h7> */}
+                <span className="errorMessage">
+                  {this.state.formErrors.errorPassword}
+                </span>
               </div>
-              
+
               <div className="buttons">
                 <Link to="/signin">
                   <h6>Sign in instead</h6>
                 </Link>
-                <Button type="submit" variant="primary">
+                <Button type="submit" onClick={this.onSubmit} variant="primary">
                   Create account
                 </Button>
               </div>
