@@ -150,7 +150,7 @@ export default class Register extends React.Component {
               </div>
 
               <div className="flex1">
-                {/* <h7>You can use letters , numbers and periods</h7> */}
+                <h7>You can use letters , numbers and periods</h7> 
                 <span className="errorMessage">
                   {this.state.formErrors.errorEmail}
                 </span>
@@ -191,9 +191,9 @@ export default class Register extends React.Component {
                 </div>
               </div>
               <div className="flex">
-                {/* <h7>
+                <h7>
                   Use 8 or more characters mix with letters, numbers & symbols
-                </h7> */}
+                </h7> 
                 <span className="errorMessage">
                   {this.state.formErrors.errorPassword}
                 </span>
