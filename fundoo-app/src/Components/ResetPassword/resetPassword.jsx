@@ -5,6 +5,8 @@ import Button from "react-bootstrap/Button";
 import TextField from "@material-ui/core/TextField";
 //import { Link } from "react-router-dom";
 
+const passwordValidation = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
+
 export default class resetPassword extends React.Component {
   constructor(props) {
     super(props);
@@ -21,7 +23,7 @@ export default class resetPassword extends React.Component {
 
   onValueChange = (e) => {
     
-    let passwordValidation = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
+    // let passwordValidation = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
     this.setState({
       [e.target.name]: e.target.value,
     });

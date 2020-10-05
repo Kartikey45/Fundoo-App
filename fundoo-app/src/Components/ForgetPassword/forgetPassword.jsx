@@ -3,22 +3,25 @@ import "./forgetPassword.scss";
 import Button from "react-bootstrap/Button";
 import TextField from "@material-ui/core/TextField";
 //import { Link } from "react-router-dom";
+import UserService from "../../Services/UserService";
+
+const emailValidation = /^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
 
 export default class forgetPassword extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      email : null,
+      email: null,
 
       formErrors: {
-        errorEmail : "",
+        errorEmail: "",
       },
     };
   }
 
   onValueChange = (e) => {
-    let emailValidation = /^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
-    
+    // let emailValidation = /^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
+
     this.setState({
       [e.target.name]: e.target.value,
     });
@@ -27,10 +30,19 @@ export default class forgetPassword extends React.Component {
 
     let inputs = this.state.formErrors;
     inputs.errorEmail =
-        emailValidation.test(e.target.value) === true
-            ? ""
-            : "Enter valid email";
+      emailValidation.test(e.target.value) === true ? "" : "Enter valid email";
   };
+
+  onSubmit= (event) =>{
+    event.preventDefault();
+    let userData = {
+      email: this.state.email,
+    };
+    console.log("message")
+    UserService.forgetPass(userData).then((data) => {
+      console.log(data);
+    }).catch((error) => {console.log(error)});
+  }
 
   render() {
     return (
@@ -52,21 +64,22 @@ export default class forgetPassword extends React.Component {
           </div>
           <div className="fpinput">
             <div className="fpEmail">
-            <TextField
-              id="outlined-basic"
-              label="Email"
-              name="email"
-              variant="outlined"
-              required
-              fullWidth
-              onChange={this.onValueChange}
-            />
-            <span className="errorMessage">{this.state.formErrors.errorEmail}</span>
+              <TextField
+                id="outlined-basic"
+                label="Email"
+                name="email"
+                variant="outlined"
+                required
+                fullWidth
+                onChange={this.onValueChange}
+              />
+              <span className="errorMessage">
+                {this.state.formErrors.errorEmail}
+              </span>
             </div>
-            
           </div>
           <div className="fpbutton">
-            <Button variant="primary">Next</Button>
+            <Button type="submit" onClick={this.onSubmit} variant="primary">Next</Button>
           </div>
         </div>
       </div>

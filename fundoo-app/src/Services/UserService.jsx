@@ -16,6 +16,11 @@ class UserService {
     let url = baseURL + "user/userSignUp";
     return this.axiosService.post(url, data);
   }
+
+  forgetPass(data){
+    let url = baseURL + "user/reset";
+    return this.axiosService.post(url, data);
+  }
 }
 
 export default new UserService();

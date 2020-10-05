@@ -6,6 +6,10 @@ import TextField from "@material-ui/core/TextField";
 import { Link } from "react-router-dom";
 import UserService from "../../Services/UserService";
 
+const nameValidation = /^[A-Z][a-zA-Z]*$/;
+const emailValidation = /^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
+const passwordValidation = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
+
 export default class Register extends React.Component {
   constructor(props) {
     super(props);
@@ -26,9 +30,9 @@ export default class Register extends React.Component {
   }
 
   onValueChange = (e) => {
-    let nameValidation = /^[A-Z][a-zA-Z]*$/;
-    let emailValidation = /^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
-    let passwordValidation = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
+    // let nameValidation = /^[A-Z][a-zA-Z]*$/;
+    // let emailValidation = /^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
+    // let passwordValidation = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
     this.setState({
       [e.target.name]: e.target.value,
     });
@@ -85,7 +89,7 @@ export default class Register extends React.Component {
     UserService.register(userData).then((data) => {
       console.log(data);
     });
-  }
+  };
 
   render() {
     return (
@@ -150,7 +154,7 @@ export default class Register extends React.Component {
               </div>
 
               <div className="flex1">
-                <h7>You can use letters , numbers and periods</h7> 
+                <h7>You can use letters , numbers and periods</h7>
                 <span className="errorMessage">
                   {this.state.formErrors.errorEmail}
                 </span>
@@ -193,7 +197,7 @@ export default class Register extends React.Component {
               <div className="flex">
                 <h7>
                   Use 8 or more characters mix with letters, numbers & symbols
-                </h7> 
+                </h7>
                 <span className="errorMessage">
                   {this.state.formErrors.errorPassword}
                 </span>
