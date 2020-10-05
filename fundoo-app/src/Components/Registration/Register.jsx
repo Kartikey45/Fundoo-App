@@ -82,6 +82,7 @@ export default class Register extends React.Component {
       service: "advance",
     };
 
+     
     if (
       this.state.formErrors.errorFirstName !== "" ||
       this.state.formErrors.errorLastName !== "" ||
@@ -89,12 +90,15 @@ export default class Register extends React.Component {
       this.state.formErrors.errorPassword !== "" ||
       this.state.formErrors.errorConfirmPassword !== ""
     ) {
-      console.log("Input Field are not properly filled");
+      console.log("Input Fields are not properly filled");
     } else if (this.state.password !== this.state.confirmPassword) {
       console.log("Password not match");
-    } else {
+    } 
+    else {
       UserService.register(userData).then((data) => {
         console.log(data);
+      }).catch((error) => {
+        console.log("Invalid Entry",error);
       });
     }
   };

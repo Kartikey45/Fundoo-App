@@ -24,13 +24,9 @@ export default class login extends React.Component {
   }
 
   onValueChange = (e) => {
-    // let emailValidation = /^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
-    // let passwordValidation = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
     this.setState({
       [e.target.name]: e.target.value,
     });
-    // nameValidation.test(e.target.value)
-    // console.log(nameValidation.test(e.target.value));
 
     let inputs = this.state.formErrors;
 
@@ -60,9 +56,19 @@ export default class login extends React.Component {
       password: this.state.password,
       cartId: "",
     };
-    UserService.login(userData).then((data) => {
-      console.log(data);
-    });
+
+    if (
+      this.state.formErrors.errorEmail !== "" ||
+      this.state.formErrors.errorPassword !== ""
+    ) {
+      console.log("Input Fields are not properly filled");
+    } else {
+      UserService.login(userData).then((data) => {
+        console.log(data);
+      }).catch((error) => {
+        console.log("Invalid Entry",error);
+      });
+    }
   };
 
   render() {

@@ -20,13 +20,12 @@ export default class forgetPassword extends React.Component {
   }
 
   onValueChange = (e) => {
-    // let emailValidation = /^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
+    
 
     this.setState({
       [e.target.name]: e.target.value,
     });
-    // nameValidation.test(e.target.value)
-    // console.log(nameValidation.test(e.target.value));
+    
 
     let inputs = this.state.formErrors;
     inputs.errorEmail =
@@ -38,14 +37,17 @@ export default class forgetPassword extends React.Component {
     let userData = {
       email: this.state.email,
     };
-    console.log("message");
-    UserService.forgetPass(userData)
-      .then((data) => {
+    if (
+      this.state.formErrors.errorEmail !== "" 
+    ) {
+      console.log("Input Fields are not properly filled");
+    } else {
+      UserService.forgetPass(userData).then((data) => {
         console.log(data);
-      })
-      .catch((error) => {
-        console.log(error);
+      }).catch((error) => {
+        console.log("Invalid Entry",error);
       });
+    }
   };
 
   render() {
