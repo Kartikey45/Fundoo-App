@@ -33,16 +33,20 @@ export default class forgetPassword extends React.Component {
       emailValidation.test(e.target.value) === true ? "" : "Enter valid email";
   };
 
-  onSubmit= (event) =>{
+  onSubmit = (event) => {
     event.preventDefault();
     let userData = {
       email: this.state.email,
     };
-    console.log("message")
-    UserService.forgetPass(userData).then((data) => {
-      console.log(data);
-    }).catch((error) => {console.log(error)});
-  }
+    console.log("message");
+    UserService.forgetPass(userData)
+      .then((data) => {
+        console.log(data);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
 
   render() {
     return (
@@ -79,7 +83,9 @@ export default class forgetPassword extends React.Component {
             </div>
           </div>
           <div className="fpbutton">
-            <Button type="submit" onClick={this.onSubmit} variant="primary">Next</Button>
+            <Button type="submit" onClick={this.onSubmit} variant="primary">
+              Next
+            </Button>
           </div>
         </div>
       </div>

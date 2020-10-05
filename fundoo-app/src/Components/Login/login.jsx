@@ -53,17 +53,17 @@ export default class login extends React.Component {
     }
   };
 
-  onSubmit = (event) =>{
+  onSubmit = (event) => {
     event.preventDefault();
     let userData = {
       email: this.state.email,
       password: this.state.password,
-      cartId:"",
+      cartId: "",
     };
     UserService.login(userData).then((data) => {
       console.log(data);
     });
-  }
+  };
 
   render() {
     return (
@@ -83,33 +83,37 @@ export default class login extends React.Component {
           <div className="input1">
             <div className="inputEmail">
               <TextField
-              id="outlined-basic"
-              label="E-mail"
-              variant="outlined"
-              required
-              fullWidth
-              name="email"
-              onChange={this.onValueChange}
-            />
-            <span className="errorMessage">{this.state.formErrors.errorEmail}</span>
+                id="outlined-basic"
+                label="E-mail"
+                variant="outlined"
+                required
+                fullWidth
+                name="email"
+                onChange={this.onValueChange}
+              />
+              <span className="errorMessage">
+                {this.state.formErrors.errorEmail}
+              </span>
             </div>
-            
-            <div className="inputEmail"><TextField
-              id="outlined-basic"
-              label="Password"
-              variant="outlined"
-              ref="password"
-              hintText="Password"
-              floatingLabelText="Password"
-              type="password"
-              required
-              fullWidth
-              name="password"
-              onChange={this.onValueChange}
-            />
-            <span className="errorMessage">{this.state.formErrors.errorPassword}</span>
+
+            <div className="inputEmail">
+              <TextField
+                id="outlined-basic"
+                label="Password"
+                variant="outlined"
+                ref="password"
+                hintText="Password"
+                floatingLabelText="Password"
+                type="password"
+                required
+                fullWidth
+                name="password"
+                onChange={this.onValueChange}
+              />
+              <span className="errorMessage">
+                {this.state.formErrors.errorPassword}
+              </span>
             </div>
-            
           </div>
           <br />
           <div className="forgetText">
@@ -121,7 +125,9 @@ export default class login extends React.Component {
             <Link to="/signup">
               <h6>Create account</h6>
             </Link>
-            <Button type="submit" onClick={this.onSubmit} variant="primary">Login</Button>
+            <Button type="submit" onClick={this.onSubmit} variant="primary">
+              Login
+            </Button>
           </div>
         </div>
       </div>
