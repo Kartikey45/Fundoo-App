@@ -1,9 +1,10 @@
 import React, { Component } from "react";
 import "./Register.scss";
-import Button from "react-bootstrap/Button";
+import { Button, Toast } from "react-bootstrap";
 import TextField from "@material-ui/core/TextField";
 import { Link } from "react-router-dom";
 import UserService from "../../Services/UserService";
+import CustomToast from "../CustomToast";
 
 const nameValidation = /^[A-Z][a-zA-Z]*$/;
 const emailValidation = /^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
@@ -25,6 +26,8 @@ export default class Register extends React.Component {
         errorPassword: "",
         errorConfirmPassword: "",
       },
+      Open: false,
+      Message: "",
     };
   }
 
@@ -82,8 +85,19 @@ export default class Register extends React.Component {
       service: "advance",
     };
 
-     
     if (
+      this.state.firstName === null ||
+      this.state.lastName === null ||
+      this.state.email === null ||
+      this.state.password === null ||
+      this.state.confirmPassword === null
+    ) {
+      console.log("Some input fields are not filled");
+      this.setState({
+        Open: true,
+        Message: "Some input fields are not filled",
+      });
+    } else if (
       this.state.formErrors.errorFirstName !== "" ||
       this.state.formErrors.errorLastName !== "" ||
       this.state.formErrors.errorEmail !== "" ||
@@ -91,15 +105,29 @@ export default class Register extends React.Component {
       this.state.formErrors.errorConfirmPassword !== ""
     ) {
       console.log("Input Fields are not properly filled");
+      this.setState({
+        Open: true,
+        Message: "Input Fields are not properly filled",
+      });
     } else if (this.state.password !== this.state.confirmPassword) {
       console.log("Password not match");
-    } 
-    else {
-      UserService.register(userData).then((data) => {
-        console.log(data);
-      }).catch((error) => {
-        console.log("Invalid Entry",error);
+      this.setState({
+        Open: true,
+        Message: "Password not match",
       });
+    } else {
+      UserService.register(userData)
+        .then((data) => {
+          console.log(data.data.data.message);
+          this.setState({ Open: true, Message: "Registered Successfully" });
+        })
+        .catch((error) => {
+          console.log(error.message);
+          this.setState({
+            Open: true,
+            Message: "Email already exists",
+          });
+        });
     }
   };
 
@@ -228,6 +256,13 @@ export default class Register extends React.Component {
             ></img>
           </div>
         </div>
+        <CustomToast
+          display={this.state.Open}
+          Message={this.state.Message}
+          onClose={() => {
+            this.setState({ Open: false });
+          }}
+        />
       </div>
     );
   }

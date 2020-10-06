@@ -57,17 +57,21 @@ export default class login extends React.Component {
       cartId: "",
     };
 
-    if (
+    if (this.state.email === null || this.state.password === null) {
+      console.log("Some input are not filled");
+    } else if (
       this.state.formErrors.errorEmail !== "" ||
       this.state.formErrors.errorPassword !== ""
     ) {
       console.log("Input Fields are not properly filled");
     } else {
-      UserService.login(userData).then((data) => {
-        console.log(data);
-      }).catch((error) => {
-        console.log("Invalid Entry",error);
-      });
+      UserService.login(userData)
+        .then((data) => {
+          console.log("Login Successfull", data);
+        })
+        .catch((error) => {
+          console.log("Invalid Entry", error);
+        });
     }
   };
 

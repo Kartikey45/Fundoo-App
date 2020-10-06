@@ -3,6 +3,7 @@ import "./resetPassword.scss";
 import Button from "react-bootstrap/Button";
 //import { makeStyles } from "@material-ui/core/styles";
 import TextField from "@material-ui/core/TextField";
+import IconButton from "@material-ui/core/IconButton";
 //import { Link, Route, Params } from "react-router-dom";
 
 const passwordValidation = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
@@ -22,18 +23,16 @@ export default class resetPassword extends React.Component {
   }
 
   onValueChange = (e) => {
-   
     this.setState({
       [e.target.name]: e.target.value,
     });
-    
 
     let inputs = this.state.formErrors;
 
     switch (e.target.name) {
       case "password":
         inputs.errorPassword =
-        passwordValidation.test(e.target.value) === true
+          passwordValidation.test(e.target.value) === true
             ? ""
             : "Enter valid password";
         break;
@@ -76,12 +75,14 @@ export default class resetPassword extends React.Component {
               hintText="Password"
               floatingLabelText="Password"
               type="password"
-              name = "password"
+              name="password"
               fullWidth
               required
               onChange={this.onValueChange}
             />
-            <span className="errorMessage">{this.state.formErrors.errorPassword}</span>
+            <span className="errorMessage">
+              {this.state.formErrors.errorPassword}
+            </span>
           </div>
           <div className="rpinput2">
             <TextField
@@ -97,7 +98,9 @@ export default class resetPassword extends React.Component {
               required
               onChange={this.onValueChange}
             />
-            <span className="errorMessage">{this.state.formErrors.errorConfirmPassword}</span>
+            <span className="errorMessage">
+              {this.state.formErrors.errorConfirmPassword}
+            </span>
           </div>
           <div className="rpbutton">
             <Button variant="primary">Reset</Button>

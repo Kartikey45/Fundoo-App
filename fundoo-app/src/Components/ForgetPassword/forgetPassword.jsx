@@ -20,12 +20,9 @@ export default class forgetPassword extends React.Component {
   }
 
   onValueChange = (e) => {
-    
-
     this.setState({
       [e.target.name]: e.target.value,
     });
-    
 
     let inputs = this.state.formErrors;
     inputs.errorEmail =
@@ -37,16 +34,22 @@ export default class forgetPassword extends React.Component {
     let userData = {
       email: this.state.email,
     };
-    if (
-      this.state.formErrors.errorEmail !== "" 
-    ) {
+
+    if (this.state.email === null) {
+      console.log("Some input fields are not filled");
+    } else if (this.state.formErrors.errorEmail !== "") {
       console.log("Input Fields are not properly filled");
     } else {
-      UserService.forgetPass(userData).then((data) => {
-        console.log(data);
-      }).catch((error) => {
-        console.log("Invalid Entry",error);
-      });
+      UserService.forgetPass(userData)
+        .then((data) => {
+          console.log(
+            "Reset password link sent to the registered Email address",
+            data
+          );
+        })
+        .catch((error) => {
+          console.log("Invalid Entry", error);
+        });
     }
   };
 
