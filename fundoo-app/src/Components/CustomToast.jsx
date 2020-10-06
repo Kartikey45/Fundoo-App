@@ -3,12 +3,18 @@ import { Toast } from "react-bootstrap";
 
 export default function CustomToast(props) {
   return (
-    <Toast style = {{position : "absolute", top : "20px" , left : "20px" , background : "smokewhite" }}
+    <Toast
+      style={{
+        position: "absolute",
+        top: "20px",
+        left: "20px",
+        background: "smokewhite",
+      }}
       onClose={() => {
         props.onClose();
       }}
       show={props.display}
-      delay= {8000}
+      delay={8000}
       autohide
     >
       <Toast.Header>

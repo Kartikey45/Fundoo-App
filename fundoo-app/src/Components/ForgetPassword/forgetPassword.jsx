@@ -4,6 +4,7 @@ import Button from "react-bootstrap/Button";
 import TextField from "@material-ui/core/TextField";
 //import { Link } from "react-router-dom";
 import UserService from "../../Services/UserService";
+import CustomToast from "../CustomToast";
 
 const emailValidation = /^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
 
@@ -16,6 +17,9 @@ export default class forgetPassword extends React.Component {
       formErrors: {
         errorEmail: "",
       },
+
+      Open: false,
+      Message: "",
     };
   }
 
@@ -37,18 +41,31 @@ export default class forgetPassword extends React.Component {
 
     if (this.state.email === null) {
       console.log("Some input fields are not filled");
+      this.setState({
+        Open: true,
+        Message: "Some input fields are not filled",
+      });
     } else if (this.state.formErrors.errorEmail !== "") {
-      console.log("Input Fields are not properly filled");
+      console.log("Input Fields are not correctly filled");
+      this.setState({
+        Open: true,
+        Message: "Input Fields are not correctly filled",
+      });
     } else {
       UserService.forgetPass(userData)
         .then((data) => {
-          console.log(
-            "Reset password link sent to the registered Email address",
-            data
-          );
+          console.log("Reset password link sent to your Email address", data);
+          this.setState({
+            Open: true,
+            Message: "Reset password link sent to your Email address",
+          });
         })
         .catch((error) => {
-          console.log("Invalid Entry", error);
+          console.log("Invalid Email ", error);
+          this.setState({
+            Open: true,
+            Message: "Invalid Email",
+          });
         });
     }
   };
@@ -93,6 +110,13 @@ export default class forgetPassword extends React.Component {
             </Button>
           </div>
         </div>
+        <CustomToast
+          display={this.state.Open}
+          Message={this.state.Message}
+          onClose={() => {
+            this.setState({ Open: false });
+          }}
+        />
       </div>
     );
   }
