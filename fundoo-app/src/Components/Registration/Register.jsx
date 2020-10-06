@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import "./Register.scss";
-import { Button, Toast } from "react-bootstrap";
+import { Button } from "react-bootstrap";
 import TextField from "@material-ui/core/TextField";
 import { Link } from "react-router-dom";
 import UserService from "../../Services/UserService";

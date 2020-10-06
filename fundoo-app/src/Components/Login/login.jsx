@@ -5,6 +5,7 @@ import Button from "react-bootstrap/Button";
 import TextField from "@material-ui/core/TextField";
 import { Link } from "react-router-dom";
 import UserService from "../../Services/UserService";
+import CustomToast from "../CustomToast";
 
 const emailValidation = /^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
 const passwordValidation = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
@@ -20,6 +21,9 @@ export default class login extends React.Component {
         errorEmail: "",
         errorPassword: "",
       },
+
+      Open: false,
+      Message: "",
     };
   }
 
@@ -59,18 +63,34 @@ export default class login extends React.Component {
 
     if (this.state.email === null || this.state.password === null) {
       console.log("Some input are not filled");
+      this.setState({
+        Open: true,
+        Message: "Some input fields are not filled",
+      });
     } else if (
       this.state.formErrors.errorEmail !== "" ||
       this.state.formErrors.errorPassword !== ""
     ) {
-      console.log("Input Fields are not properly filled");
+      console.log("Input Fields are not correctly filled");
+      this.setState({
+        Open: true,
+        Message: "Input Fields are not correctly filled",
+      });
     } else {
       UserService.login(userData)
         .then((data) => {
           console.log("Login Successfull", data);
+          this.setState({
+            Open: true,
+            Message: "Login Successfull",
+          });
         })
         .catch((error) => {
-          console.log("Invalid Entry", error);
+          console.log("Login failed", error);
+          this.setState({
+            Open: true,
+            Message: "Login failed",
+          });
         });
     }
   };
@@ -140,6 +160,13 @@ export default class login extends React.Component {
             </Button>
           </div>
         </div>
+        <CustomToast
+          display={this.state.Open}
+          Message={this.state.Message}
+          onClose={() => {
+            this.setState({ Open: false });
+          }}
+        />
       </div>
     );
   }
