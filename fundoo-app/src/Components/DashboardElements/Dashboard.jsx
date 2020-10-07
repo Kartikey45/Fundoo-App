@@ -6,48 +6,16 @@ import { ReactComponent as EditLable } from "../../Images&logos/EditLables.svg";
 import { ReactComponent as Archieve } from "../../Images&logos/Archies.svg";
 import { ReactComponent as Trash } from "../../Images&logos/Trashes.svg";
 import "./Dashboard.scss";
-import {
-  Nav,
-  Navbar,
-  Form,
-  FormControl,
-  Button,
-  NavItem,
-  Dropdown,
-} from "react-bootstrap";
+import { Navbar, Dropdown } from "react-bootstrap";
 import clsx from "clsx";
 import { makeStyles, useTheme } from "@material-ui/core/styles";
 import Drawer from "@material-ui/core/Drawer";
 
-
-
-const drawerWidth = 240;
+const drawerWidth = 170;
 
 const useStyles = makeStyles((theme) => ({
   root: {
     display: "flex",
-  },
-  appBar: {
-    // width:'50px',
-    zIndex: theme.zIndex.drawer + 1,
-    transition: theme.transitions.create(["width", "margin"], {
-      easing: theme.transitions.easing.sharp,
-      duration: theme.transitions.duration.leavingScreen,
-    }),
-  },
-  appBarShift: {
-    marginLeft: drawerWidth,
-    width: `calc(100% - ${drawerWidth}px)`,
-    transition: theme.transitions.create(["width", "margin"], {
-      easing: theme.transitions.easing.sharp,
-      duration: theme.transitions.duration.enteringScreen,
-    }),
-  },
-  menuButton: {
-    marginRight: 36,
-  },
-  hide: {
-    display: "none",
   },
   drawer: {
     width: drawerWidth,
@@ -74,24 +42,11 @@ const useStyles = makeStyles((theme) => ({
       width: theme.spacing(9) + 1,
     },
   },
-  toolbar: {
-    display: "flex",
-    alignItems: "center",
-    justifyContent: "flex-end",
-    padding: theme.spacing(0, 1),
-    // necessary for content to be below app bar
-    ...theme.mixins.toolbar,
-  },
-  content: {
-    flexGrow: 1,
-    padding: theme.spacing(3),
-  },
 }));
 
 export default function Dashboard(props) {
   const classes = useStyles();
-  const theme = useTheme();
-  const [open, setOpen] = React.useState(false);
+  const [open, setOpen] = useState(false);
 
   const handleDrawerOpen = () => {
     if (open) {
@@ -130,6 +85,7 @@ export default function Dashboard(props) {
               }}
             />
           </div>
+
           <div>
             <Dropdown menuAlign={{ lg: "right" }}>
               <Dropdown.Toggle variant="light" id="dropdown-basic">
@@ -154,10 +110,6 @@ export default function Dashboard(props) {
         <Drawer
           className="drawer"
           variant="permanent"
-          className={clsx(classes.drawer, {
-            [classes.drawerOpen]: open,
-            [classes.drawerClose]: !open,
-          })}
           classes={{
             paper: clsx({
               [classes.drawerOpen]: open,
