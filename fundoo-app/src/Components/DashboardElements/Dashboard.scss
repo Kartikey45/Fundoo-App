@@ -1,0 +1,19 @@
+.navbar{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.searchbar {
+  border-radius: 10px;
+  width: 60%;
+  background-color: rgb(189, 184, 184);
+  height: 30px;
+}
+
+
+.searchbar:hover{
+    background-color: white;
+    border: 1px solid silver;
+}
