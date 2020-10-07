@@ -1,19 +1,31 @@
-.navbar{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    width: 100%;
+.navbar {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 100%;
 }
 
 .searchbar {
-  border-radius: 10px;
+  border-radius: 21px;
   width: 60%;
   background-color: rgb(189, 184, 184);
   height: 30px;
 }
 
+.searchbar:hover {
+  background-color: white;
+  border: 1px solid silver;
+}
 
-.searchbar:hover{
-    background-color: white;
-    border: 1px solid silver;
+.drawer {
+  margin-top: 85px !important;
+}
+
+.drawerElementsNote {
+  margin-left: 32px;
+}
+
+.RemainingdrawerElements {
+  margin-top: 30px;
+  margin-left: 32px;
 }
