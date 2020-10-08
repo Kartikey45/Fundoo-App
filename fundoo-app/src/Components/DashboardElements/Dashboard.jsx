@@ -10,8 +10,10 @@ import { Navbar, Dropdown } from "react-bootstrap";
 import clsx from "clsx";
 import { makeStyles, useTheme } from "@material-ui/core/styles";
 import Drawer from "@material-ui/core/Drawer";
+import { Visibility, VisibilityOff } from "@material-ui/icons";
+import { Hidden } from "@material-ui/core";
 
-const drawerWidth = 170;
+const drawerWidth = 200;
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -22,6 +24,7 @@ const useStyles = makeStyles((theme) => ({
     flexShrink: 0,
     whiteSpace: "nowrap",
   },
+
   drawerOpen: {
     width: drawerWidth,
     marginTop: "85px",
@@ -35,7 +38,10 @@ const useStyles = makeStyles((theme) => ({
     transition: theme.transitions.create("width", {
       easing: theme.transitions.easing.sharp,
       duration: theme.transitions.duration.leavingScreen,
-    }),
+    }
+    ),
+    // display : "flex",
+    // flexDirection: "row-reverse",
     overflowX: "hidden",
     width: theme.spacing(7) + 1,
     [theme.breakpoints.up("sm")]: {
@@ -69,15 +75,21 @@ export default function Dashboard(props) {
             srcset="https://www.gstatic.com/images/branding/product/1x/keep_48dp.png 1x, https://www.gstatic.com/images/branding/product/2x/keep_48dp.png 2x "
             alt=""
             aria-hidden="true"
-            style={{ width: "40px", height: "40px" }}
+            style={{ width: "40px",
+              height: "40px",
+              marginLeft: "-332px",
+               }}
           />
-          <span style={{ fontSize: "22px" }}>FundooNotes</span>
+          <span style={{ fontSize: "22px", marginLeft: "-341px" }}>
+            FundooNotes
+          </span>
           <div className="searchbar">
             <input
               type="text"
               placeholder="Search"
               style={{
-                width: "60%",
+                textAlign: "center",
+                width: "90%",
                 background: "transparent",
                 border: "none",
                 outline: "none",
@@ -96,7 +108,7 @@ export default function Dashboard(props) {
                 />
               </Dropdown.Toggle>
 
-              <Dropdown.Menu>
+              <Dropdown.Menu style={{left: "-72px", top: "71px"}}>
                 <Dropdown.Item href="#/action-1">Action</Dropdown.Item>
                 <Dropdown.Item href="#/action-2">Another action</Dropdown.Item>
                 <Dropdown.Item href="#/action-3">Something else</Dropdown.Item>
@@ -117,11 +129,11 @@ export default function Dashboard(props) {
             }),
           }}
         >
-          <Note className="drawerElementsNote" />
-          <Reminder className="RemainingdrawerElements" />
-          <EditLable className="RemainingdrawerElements" />
-          <Archieve className="RemainingdrawerElements" />
-          <Trash className="RemainingdrawerElements" />
+          <div style={{ display:"flex",  }} ><Note className="drawerElementsNote" type="Button"/><span style={!open?{display:"none"}: {display:"block", marginLeft: "13%" }} >Note</span></div>
+          <div style={{ display:"flex",  marginTop: "30px" }} ><Reminder className="RemainingdrawerElements" type="Button" /><span style={!open?{display:"none"}: {display:"block", marginLeft: "13%" }}>Reminders</span></div>
+          <div style={{ display:"flex" ,  marginTop: "30px" }} ><EditLable className="RemainingdrawerElements" type="Button" /><span style={!open?{display:"none"}: {display:"block", marginLeft: "13%" }} >Edit lable</span></div>
+          <div style={{ display:"flex" ,  marginTop: "30px"  }} ><Archieve className="RemainingdrawerElements" type="Button" /><span style={!open?{display:"none"}: {display:"block", marginLeft: "13%" }} >Archieve</span></div>
+          <div style={{ display:"flex" ,  marginTop: "30px"  }} ><Trash className="RemainingdrawerElements" type="Button" /><span style={!open?{display:"none"}: {display:"block", marginLeft: "13%" }} >Trash</span></div>
         </Drawer>
       </div>
     </div>
