@@ -10,8 +10,7 @@ import { Navbar, Dropdown } from "react-bootstrap";
 import clsx from "clsx";
 import { makeStyles, useTheme } from "@material-ui/core/styles";
 import Drawer from "@material-ui/core/Drawer";
-import { Visibility, VisibilityOff } from "@material-ui/icons";
-import { Hidden } from "@material-ui/core";
+import CreateNote from "../../Components/CreateNote/CreateNote";
 
 const drawerWidth = 200;
 
@@ -108,10 +107,10 @@ export default function Dashboard(props) {
                 />
               </Dropdown.Toggle>
 
-              <Dropdown.Menu style={{left: "-72px", top: "71px"}}>
-                <Dropdown.Item href="#/action-1">Action</Dropdown.Item>
-                <Dropdown.Item href="#/action-2">Another action</Dropdown.Item>
-                <Dropdown.Item href="#/action-3">Something else</Dropdown.Item>
+              <Dropdown.Menu style={{left: "-85px", top: "70px"}}>
+                <div className="logout" >
+
+                </div>
               </Dropdown.Menu>
             </Dropdown>
           </div>
@@ -136,6 +135,7 @@ export default function Dashboard(props) {
           <div style={{ display:"flex" ,  marginTop: "30px"  }} ><Trash className="RemainingdrawerElements" type="Button" /><span style={!open?{display:"none"}: {display:"block", marginLeft: "15%" }} >Trash</span></div>
         </Drawer>
       </div>
+         <CreateNote/>
     </div>
   );
 }

@@ -80,10 +80,12 @@ export default class login extends React.Component {
       UserService.login(userData)
         .then((data) => {
           console.log("Login Successfull", data);
+          localStorage.setItem('token', data.data.id)
           this.setState({
             Open: true,
             Message: "Login Successfull",
           });
+          this.props.history.push("/dashboard")
         })
         .catch((error) => {
           console.log("Login failed", error);
