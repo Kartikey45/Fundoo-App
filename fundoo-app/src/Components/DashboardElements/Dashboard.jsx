@@ -77,10 +77,10 @@ export default function Dashboard(props) {
             aria-hidden="true"
             style={{ width: "40px",
               height: "40px",
-              marginLeft: "-332px",
+              marginLeft: "-27%",
                }}
           />
-          <span style={{ fontSize: "22px", marginLeft: "-341px" }}>
+          <span style={{ fontSize: "22px", marginLeft: "-28%" }}>
             FundooNotes
           </span>
           <div className="searchbar">
@@ -129,11 +129,11 @@ export default function Dashboard(props) {
             }),
           }}
         >
-          <div style={{ display:"flex",  }} ><Note className="drawerElementsNote" type="Button"/><span style={!open?{display:"none"}: {display:"block", marginLeft: "13%" }} >Note</span></div>
-          <div style={{ display:"flex",  marginTop: "30px" }} ><Reminder className="RemainingdrawerElements" type="Button" /><span style={!open?{display:"none"}: {display:"block", marginLeft: "13%" }}>Reminders</span></div>
-          <div style={{ display:"flex" ,  marginTop: "30px" }} ><EditLable className="RemainingdrawerElements" type="Button" /><span style={!open?{display:"none"}: {display:"block", marginLeft: "13%" }} >Edit lable</span></div>
-          <div style={{ display:"flex" ,  marginTop: "30px"  }} ><Archieve className="RemainingdrawerElements" type="Button" /><span style={!open?{display:"none"}: {display:"block", marginLeft: "13%" }} >Archieve</span></div>
-          <div style={{ display:"flex" ,  marginTop: "30px"  }} ><Trash className="RemainingdrawerElements" type="Button" /><span style={!open?{display:"none"}: {display:"block", marginLeft: "13%" }} >Trash</span></div>
+          <div style={{ display:"flex",  }} ><Note className="drawerElementsNote" type="Button"/><span style={!open?{display:"none"}: {display:"block", marginLeft: "15%" }} >Note</span></div>
+          <div style={{ display:"flex",  marginTop: "30px" }} ><Reminder className="RemainingdrawerElements" type="Button" /><span style={!open?{display:"none"}: {display:"block", marginLeft: "15%" }}>Reminders</span></div>
+          <div style={{ display:"flex" ,  marginTop: "30px" }} ><EditLable className="RemainingdrawerElements" type="Button" /><span style={!open?{display:"none"}: {display:"block", marginLeft: "15%" }} >Edit lable</span></div>
+          <div style={{ display:"flex" ,  marginTop: "30px"  }} ><Archieve className="RemainingdrawerElements" type="Button" /><span style={!open?{display:"none"}: {display:"block", marginLeft: "15%" }} >Archieve</span></div>
+          <div style={{ display:"flex" ,  marginTop: "30px"  }} ><Trash className="RemainingdrawerElements" type="Button" /><span style={!open?{display:"none"}: {display:"block", marginLeft: "15%" }} >Trash</span></div>
         </Drawer>
       </div>
     </div>
