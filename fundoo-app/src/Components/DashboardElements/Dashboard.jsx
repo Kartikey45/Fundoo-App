@@ -6,7 +6,7 @@ import { ReactComponent as EditLable } from "../../Images&logos/EditLables.svg";
 import { ReactComponent as Archieve } from "../../Images&logos/Archies.svg";
 import { ReactComponent as Trash } from "../../Images&logos/Trashes.svg";
 import "./Dashboard.scss";
-import { Navbar, Dropdown } from "react-bootstrap";
+import { Navbar, Dropdown, Button } from "react-bootstrap";
 import clsx from "clsx";
 import { makeStyles, useTheme } from "@material-ui/core/styles";
 import Drawer from "@material-ui/core/Drawer";
@@ -52,6 +52,11 @@ const useStyles = makeStyles((theme) => ({
 export default function Dashboard(props) {
   const classes = useStyles();
   const [open, setOpen] = useState(false);
+
+  const logOut =()=> {
+    localStorage.clear();
+    this.props.history.push({pathname:"/signin"});
+  }
 
   const handleDrawerOpen = () => {
     if (open) {
@@ -107,9 +112,10 @@ export default function Dashboard(props) {
                 />
               </Dropdown.Toggle>
 
-              <Dropdown.Menu style={{left: "-85px", top: "70px"}}>
+              <Dropdown.Menu style={{left: "-223px", top: "70px"}}>
                 <div className="logout" >
-
+                  <div className = "logoutinner"></div>
+                  <div className = "buttonMargin"><Button variant="outline-secondary" type="submit" onClick = {logOut} >Sign out</Button></div>
                 </div>
               </Dropdown.Menu>
             </Dropdown>

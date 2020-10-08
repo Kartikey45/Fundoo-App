@@ -19,8 +19,22 @@
 }
 
 .logout{
-  height: 50px;
-  width: 50px;
+  height: 155px;
+  width: 298px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.logoutinner{
+  height: 110px;
+  width: 300px;
+}
+
+.buttonMargin{
+  margin-left: 67%;
+  background-color: rgb(235, 238, 241);
 }
 
 .drawer {
