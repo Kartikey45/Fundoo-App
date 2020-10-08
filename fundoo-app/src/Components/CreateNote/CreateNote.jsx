@@ -7,6 +7,12 @@ export default class CreateNote extends React.Component {
   }
 
   render() {
-    return <div className="centre">Hello world !!!</div>;
+    return (
+    <div className="parent">
+                <div className = "showNote" >
+
+                </div>
+    </div>
+    );
   }
 }
