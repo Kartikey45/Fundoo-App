@@ -21,6 +21,12 @@ class UserService {
     let url = baseURL + "user/reset";
     return this.axiosService.post(url, data);
   }
+
+  addNote(data){
+    let url = baseURL+'notes/addNotes';
+    return this.axiosService.post(url,data);
+    }
+
 }
 
 export default new UserService();

@@ -8,9 +8,6 @@ import Dashboard from "./Components/DashboardElements/Dashboard";
 import MiniDrawer from "./Components/DashboardElements/MiniDrawer";
 import { Route, Switch, BrowserRouter } from "react-router-dom";
 
-
-
-
 function App() {
   return (
     <BrowserRouter>

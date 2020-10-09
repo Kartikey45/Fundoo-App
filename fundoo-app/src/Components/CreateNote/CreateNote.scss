@@ -10,9 +10,48 @@
     width: 40%;
     margin-left: 30%;
     margin-top: 2px;
+    padding: 10px;
 }
 
 .showNote{
-    height: 48px;
+    height: 30px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    margin-left: 20px;
+   
+}
+
+.NoteWithDescriptionANdTitle{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.TitleDescription{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    height: 100%;
     width: 100%;
 }
+
+.submitNote{
+    display: flex;
+    justify-content: space-between;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 600;
+}
+
+
+.title{
+    width: 225%;
+}
+
+.description{
+    width: 225%;
+    height: 80px;
+}
+

@@ -6,11 +6,14 @@ import { ReactComponent as EditLable } from "../../Images&logos/EditLables.svg";
 import { ReactComponent as Archieve } from "../../Images&logos/Archies.svg";
 import { ReactComponent as Trash } from "../../Images&logos/Trashes.svg";
 import "./Dashboard.scss";
+import SearchIcon from "@material-ui/icons/Search";
 import { Navbar, Dropdown, Button } from "react-bootstrap";
 import clsx from "clsx";
 import { makeStyles, useTheme } from "@material-ui/core/styles";
 import Drawer from "@material-ui/core/Drawer";
 import CreateNote from "../../Components/CreateNote/CreateNote";
+import { useHistory } from "react-router-dom";
+
 
 const drawerWidth = 200;
 
@@ -37,10 +40,7 @@ const useStyles = makeStyles((theme) => ({
     transition: theme.transitions.create("width", {
       easing: theme.transitions.easing.sharp,
       duration: theme.transitions.duration.leavingScreen,
-    }
-    ),
-    // display : "flex",
-    // flexDirection: "row-reverse",
+    }),
     overflowX: "hidden",
     width: theme.spacing(7) + 1,
     [theme.breakpoints.up("sm")]: {
@@ -49,14 +49,15 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function Dashboard(props) {
+export default function Dashboard() {
   const classes = useStyles();
+  const history = useHistory();
   const [open, setOpen] = useState(false);
 
-  const logOut =()=> {
+  const logOut = () => {
     localStorage.clear();
-    this.props.history.push({pathname:"/signin"});
-  }
+    history.push("/signin");
+  };
 
   const handleDrawerOpen = () => {
     if (open) {
@@ -79,15 +80,13 @@ export default function Dashboard(props) {
             srcset="https://www.gstatic.com/images/branding/product/1x/keep_48dp.png 1x, https://www.gstatic.com/images/branding/product/2x/keep_48dp.png 2x "
             alt=""
             aria-hidden="true"
-            style={{ width: "40px",
-              height: "40px",
-              marginLeft: "-27%",
-               }}
+            style={{ width: "40px", height: "40px", marginLeft: "-27%" }}
           />
           <span style={{ fontSize: "22px", marginLeft: "-28%" }}>
             FundooNotes
           </span>
           <div className="searchbar">
+            <SearchIcon style={{ marginBottom: "3px", marginLeft: "-15px" }} />
             <input
               type="text"
               placeholder="Search"
@@ -112,10 +111,18 @@ export default function Dashboard(props) {
                 />
               </Dropdown.Toggle>
 
-              <Dropdown.Menu style={{left: "-223px", top: "70px"}}>
-                <div className="logout" >
-                  <div className = "logoutinner"></div>
-                  <div className = "buttonMargin"><Button variant="outline-secondary" type="submit" onClick = {logOut} >Sign out</Button></div>
+              <Dropdown.Menu style={{ left: "-223px", top: "70px" }}>
+                <div className="logout">
+                  <div className="logoutinner"></div>
+                  <div className="buttonMargin">
+                    <Button
+                      variant="outline-secondary"
+                      type="submit"
+                      onClick={logOut}
+                    >
+                      Sign out
+                    </Button>
+                  </div>
                 </div>
               </Dropdown.Menu>
             </Dropdown>
@@ -134,14 +141,89 @@ export default function Dashboard(props) {
             }),
           }}
         >
-          <div style={{ display:"flex",  }} ><Note className="drawerElementsNote" type="Button"/><span style={!open?{display:"none"}: {display:"block", marginLeft: "15%" }} >Note</span></div>
-          <div style={{ display:"flex",  marginTop: "30px" }} ><Reminder className="RemainingdrawerElements" type="Button" /><span style={!open?{display:"none"}: {display:"block", marginLeft: "15%" }}>Reminders</span></div>
-          <div style={{ display:"flex" ,  marginTop: "30px" }} ><EditLable className="RemainingdrawerElements" type="Button" /><span style={!open?{display:"none"}: {display:"block", marginLeft: "15%" }} >Edit lable</span></div>
-          <div style={{ display:"flex" ,  marginTop: "30px"  }} ><Archieve className="RemainingdrawerElements" type="Button" /><span style={!open?{display:"none"}: {display:"block", marginLeft: "15%" }} >Archieve</span></div>
-          <div style={{ display:"flex" ,  marginTop: "30px"  }} ><Trash className="RemainingdrawerElements" type="Button" /><span style={!open?{display:"none"}: {display:"block", marginLeft: "15%" }} >Trash</span></div>
+          <div style={{ display: "flex", marginTop: "20px", }}>
+            <Note
+              onMouseOver={handleDrawerOpen}
+              className="drawerElementsNote"
+              type="Button"
+            />
+            <span
+              style={
+                !open
+                  ? { display: "none" }
+                  : { display: "block", marginLeft: "15%" }
+              }
+            >
+              Note
+            </span>
+          </div>
+          <div style={{ display: "flex", marginTop: "30px" }}>
+            <Reminder
+              onMouseOver={handleDrawerOpen}
+              className="RemainingdrawerElements"
+              type="Button"
+            />
+            <span
+              style={
+                !open
+                  ? { display: "none" }
+                  : { display: "block", marginLeft: "15%" }
+              }
+            >
+              Reminders
+            </span>
+          </div>
+          <div style={{ display: "flex", marginTop: "30px" }}>
+            <EditLable
+              onMouseOver={handleDrawerOpen}
+              className="RemainingdrawerElements"
+              type="Button"
+            />
+            <span
+              style={
+                !open
+                  ? { display: "none" }
+                  : { display: "block", marginLeft: "15%" }
+              }
+            >
+              Edit lable
+            </span>
+          </div>
+          <div style={{ display: "flex", marginTop: "30px" }}>
+            <Archieve
+              onMouseOver={handleDrawerOpen}
+              className="RemainingdrawerElements"
+              type="Button"
+            />
+            <span
+              style={
+                !open
+                  ? { display: "none" }
+                  : { display: "block", marginLeft: "15%" }
+              }
+            >
+              Archieve
+            </span>
+          </div>
+          <div style={{ display: "flex", marginTop: "30px" }}>
+            <Trash
+              onMouseOver={handleDrawerOpen}
+              className="RemainingdrawerElements"
+              type="Button"
+            />
+            <span
+              style={
+                !open
+                  ? { display: "none" }
+                  : { display: "block", marginLeft: "15%" }
+              }
+            >
+              Trash
+            </span>
+          </div>
         </Drawer>
       </div>
-         <CreateNote/>
+      <CreateNote />
     </div>
   );
 }
