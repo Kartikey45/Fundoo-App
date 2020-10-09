@@ -143,7 +143,7 @@ export default function Dashboard() {
         >
           <div style={{ display: "flex", marginTop: "20px", }}>
             <Note
-              onMouseOver={handleDrawerOpen}
+              // onMouseOver={handleDrawerOpen}
               className="drawerElementsNote"
               type="Button"
             />
@@ -159,7 +159,7 @@ export default function Dashboard() {
           </div>
           <div style={{ display: "flex", marginTop: "30px" }}>
             <Reminder
-              onMouseOver={handleDrawerOpen}
+              // onMouseOver={handleDrawerOpen}
               className="RemainingdrawerElements"
               type="Button"
             />
@@ -175,7 +175,7 @@ export default function Dashboard() {
           </div>
           <div style={{ display: "flex", marginTop: "30px" }}>
             <EditLable
-              onMouseOver={handleDrawerOpen}
+              // onMouseOver={handleDrawerOpen}
               className="RemainingdrawerElements"
               type="Button"
             />
@@ -191,7 +191,7 @@ export default function Dashboard() {
           </div>
           <div style={{ display: "flex", marginTop: "30px" }}>
             <Archieve
-              onMouseOver={handleDrawerOpen}
+              // onMouseOver={handleDrawerOpen}
               className="RemainingdrawerElements"
               type="Button"
             />
@@ -207,7 +207,7 @@ export default function Dashboard() {
           </div>
           <div style={{ display: "flex", marginTop: "30px" }}>
             <Trash
-              onMouseOver={handleDrawerOpen}
+              // onMouseOver={handleDrawerOpen}
               className="RemainingdrawerElements"
               type="Button"
             />
