@@ -16,7 +16,6 @@ axiosService.prototype.post = function (url, data, isHeaderRequire=false, header
   return axios.post(url, data, isHeaderRequire && header);
 };
 
-
 axiosService.prototype.get = function (url, isHeaderRequire=false, header){
   return axios.get(url, isHeaderRequire && header);
 }

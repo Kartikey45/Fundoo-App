@@ -18,10 +18,10 @@ export default class DisplayNote extends React.Component {
   render() {
 
     let card = this.props.notes.map((element) => element.isDeleted ? "" : 
-    <card className="cardiv">
+    <Card className="cardiv">
         <div>{element.title}</div>
         <div className= "descriptiondiv" >{element.description}</div>
-    </card> );
+    </Card> );
 
     return (
       <div className = "displayNoteParent">

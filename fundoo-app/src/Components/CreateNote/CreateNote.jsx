@@ -59,7 +59,6 @@ export default class CreateNote extends React.Component {
               onChange={this.onValueChange}
             />
             <TextField
-              style={{ height: "80px" }}
               id="standard-textarea"
               placeholder="Description"
               name="description"

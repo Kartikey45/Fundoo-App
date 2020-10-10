@@ -39,10 +39,11 @@
 
 .submitNote{
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-end;
     cursor: pointer;
     font-size: 16px;
     font-weight: 600;
+    margin-top: 30px;
 }
 
 
@@ -52,6 +53,6 @@
 
 .description{
     width: 225%;
-    height: 80px;
+    //height: 80px;
 }
 
