@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { ReactComponent as MenuLogo } from "../../Images&logos/Menu.svg";
 import { ReactComponent as Note } from "../../Images&logos/Notes.svg";
 import { ReactComponent as Reminder } from "../../Images&logos/Reminders.svg";
@@ -13,6 +13,8 @@ import { makeStyles, useTheme } from "@material-ui/core/styles";
 import Drawer from "@material-ui/core/Drawer";
 import CreateNote from "../../Components/CreateNote/CreateNote";
 import { useHistory } from "react-router-dom";
+import DisplayNote from "../../Components/DisplayNotes/DisplayNote";
+import noteService from "../../Services/noteService";
 
 
 const drawerWidth = 200;
@@ -53,6 +55,18 @@ export default function Dashboard() {
   const classes = useStyles();
   const history = useHistory();
   const [open, setOpen] = useState(false);
+  const [notes, setNotes] = useState([]);
+
+  const getNotes = () =>{
+    noteService.displayNote().then((data) => {
+      console.log(data.data.data.data);
+      setNotes(  data.data.data.data );
+    });
+  }
+
+  useEffect(() => {
+    getNotes();
+  }, [] )
 
   const logOut = () => {
     localStorage.clear();
@@ -141,7 +155,7 @@ export default function Dashboard() {
             }),
           }}
         >
-          <div style={{ display: "flex", marginTop: "20px", }}>
+          <div style={{ display: "flex", marginTop: "20px" }}>
             <Note
               // onMouseOver={handleDrawerOpen}
               className="drawerElementsNote"
@@ -223,7 +237,8 @@ export default function Dashboard() {
           </div>
         </Drawer>
       </div>
-      <CreateNote />
+      <CreateNote  getNotes = {()=>{getNotes()}}/>
+      <DisplayNote notes = {notes}  />
     </div>
   );
 }

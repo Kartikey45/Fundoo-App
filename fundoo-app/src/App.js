@@ -18,7 +18,7 @@ function App() {
           <Route path="/forgetPass" component={forgetPassword} />
           <Route path="/resetpassword/:token" component={resetPassword} />
           <Route path="/dashboard" component={Dashboard} />
-          <Route path="/miniDrawer" component={MiniDrawer} />
+          {/* <Route path="/miniDrawer" component={MiniDrawer} /> */}
         </Switch>
       </div>
     </BrowserRouter>

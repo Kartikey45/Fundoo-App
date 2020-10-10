@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import "./CreateNote.scss";
 import TextField from "@material-ui/core/TextField";
-import UserService from "../../Services/UserService";
+import noteService from "../../Services/noteService";
 
 export default class CreateNote extends React.Component {
   constructor(props) {
@@ -27,13 +27,15 @@ export default class CreateNote extends React.Component {
 
   onSubmit = (event) => {
     event.preventDefault();
+    this.handleChange();
     let note = {
       title: this.state.title,
       description: this.state.description,
     };
 
-    UserService.addNote(note).then((data) => {
+    noteService.addNote(note).then((data) => {
       console.log(data);
+      this.props.getNotes();
     });
   };
 
@@ -67,8 +69,8 @@ export default class CreateNote extends React.Component {
             />
 
             <div className="submitNote">
-              <span onClick={this.handleChange}>Close</span>
-              <span onClick={this.onSubmit}>Submit</span>
+              {/* <span onClick={this.handleChange}>Close</span> */}
+              <span onClick={this.onSubmit}>Close</span>
             </div>
           </div>
         )}

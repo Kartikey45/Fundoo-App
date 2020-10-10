@@ -1,0 +1,22 @@
+.displayNoteParent{
+    width: 90%;
+   display: flex;
+    flex-wrap: wrap;
+    height: fit-content;
+    margin-left: 8%;
+}
+
+.cardiv{
+    width: fit-content;
+    display: flex;
+    flex-direction: column;
+    border: whitesmoke solid;
+    background-color: #e9e5e5;
+    border-radius: 11px;
+    padding: 20px;
+    margin: 2%;
+}
+
+.descriptiondiv{
+    width: 200px;
+}

@@ -22,10 +22,10 @@ class UserService {
     return this.axiosService.post(url, data);
   }
 
-  addNote(data){
-    let url = baseURL+'notes/addNotes';
-    return this.axiosService.post(url,data);
-    }
+  // addNote(data){
+  //   let url = baseURL+'notes/addNotes';
+  //   return this.axiosService.post(url,data);
+  //   }
 
 }
 
