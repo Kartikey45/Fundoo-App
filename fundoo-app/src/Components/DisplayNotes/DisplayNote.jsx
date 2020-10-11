@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import "./DisplayNotes.scss";
 import noteService from "../../Services/noteService";
 import { Card } from "react-bootstrap";
+import DeleteIcon from "@material-ui/icons/Delete";
 
 export default class DisplayNote extends React.Component {
   constructor(props) {
@@ -15,18 +16,33 @@ export default class DisplayNote extends React.Component {
     // });
   }
 
+  onDelete(element) {
+    console.log("hello!");
+    let noteData = {
+      noteIdList : [element] , 
+      isDeleted : true
+    }
+    noteService.trashNote(noteData).then((data) => {
+      this.props.getNotes();
+    });
+  }
+
   render() {
-
-    let card = this.props.notes.map((element) => element.isDeleted ? "" : 
-    <Card className="cardiv">
-        <div>{element.title}</div>
-        <div className= "descriptiondiv" >{element.description}</div>
-    </Card> );
-
-    return (
-      <div className = "displayNoteParent">
-        {card}
-      </div>
+    console.log(this.props.notes);
+    let card = this.props.notes.map((element) =>
+      element.isDeleted ? (
+        ""
+      ) : (
+        <Card className="cardiv">
+          <div className="titleDiv">{element.title}</div>
+          <div className="descriptiondiv">{element.description}</div>
+          <div className="deleteIcon">
+            <DeleteIcon type="submit" onClick ={()=>this.onDelete(element.id)} />
+          </div>
+        </Card>
+      )
     );
+
+    return <div className="displayNoteParent">{card}</div>;
   }
 }

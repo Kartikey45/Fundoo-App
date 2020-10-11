@@ -24,6 +24,15 @@ class noteService {
       },
     });
   }
+
+  trashNote(data){
+    let url = baseURL + "notes/trashNotes";
+    return this.axiosService.post(url, data, true, {
+      headers: {
+        Authorization: localStorage.getItem("token"),
+      },
+    });
+  }
 }
 
 export default new noteService();

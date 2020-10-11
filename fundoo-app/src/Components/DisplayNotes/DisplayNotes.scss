@@ -10,7 +10,7 @@
 }
 
 .cardiv{
-    width: fit-content;
+    width: 250px;
     display: flex;
     flex-direction: column;
     border: whitesmoke solid;
@@ -20,6 +20,17 @@
     margin: 2%;
 }
 
+.titleDiv{
+    text-align: left;
+    font-weight: bold;
+}
+
 .descriptiondiv{
-    width: 200px;
+    text-align: left;
+}
+
+.deleteIcon{
+    display: flex;
+    justify-content: flex-end;
+   
 }

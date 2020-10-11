@@ -238,7 +238,7 @@ export default function Dashboard() {
         </Drawer>
       </div>
       <CreateNote  getNotes = {()=>{getNotes()}}/>
-      <DisplayNote notes = {notes}  />
+      <DisplayNote notes = {notes} getNotes = {()=>{getNotes()}}  />
     </div>
   );
 }
