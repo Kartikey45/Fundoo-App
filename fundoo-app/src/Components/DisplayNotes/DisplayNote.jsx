@@ -17,7 +17,7 @@ export default class DisplayNote extends React.Component {
   }
 
   onDelete(element) {
-    console.log("hello!");
+    console.log("Deleted...!");
     let noteData = {
       noteIdList : [element] , 
       isDeleted : true
