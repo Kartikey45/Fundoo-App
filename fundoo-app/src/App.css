@@ -3,6 +3,11 @@
   padding: 0;
 }
 
+.makeStyles-drawerClose-4 {
+  width: 73px;
+  z-index: 1 !important ;
+}
+
 .dropdown-toggle::after{   display: none; }
 
 .App {

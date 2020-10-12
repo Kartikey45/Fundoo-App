@@ -15,6 +15,7 @@ import CreateNote from "../../Components/CreateNote/CreateNote";
 import { useHistory } from "react-router-dom";
 import DisplayNote from "../../Components/DisplayNotes/DisplayNote";
 import noteService from "../../Services/noteService";
+import UpdateNote from "../../Components/UpdateNotes/UpdateNote";
 
 
 const drawerWidth = 200;
@@ -56,6 +57,7 @@ export default function Dashboard() {
   const history = useHistory();
   const [open, setOpen] = useState(false);
   const [notes, setNotes] = useState([]);
+ 
 
   const getNotes = () =>{
     noteService.displayNote().then((data) => {
@@ -125,7 +127,7 @@ export default function Dashboard() {
                 />
               </Dropdown.Toggle>
 
-              <Dropdown.Menu style={{ left: "-223px", top: "70px" }}>
+              <Dropdown.Menu style={{ left: "-223px", top: "70px", boxShadow: "0px 2px 6px 1px rgb(185, 180, 173)" }}>
                 <div className="logout">
                   <div className="logoutinner"></div>
                   <div className="buttonMargin">
@@ -144,9 +146,9 @@ export default function Dashboard() {
         </div>
       </Navbar>
 
-      <div className="drawer">
+      <div>
         <Drawer
-          className="drawer"
+          style={{zIndex : "1 !important " }}
           variant="permanent"
           classes={{
             paper: clsx({
@@ -155,7 +157,7 @@ export default function Dashboard() {
             }),
           }}
         >
-          <div style={{ display: "flex", marginTop: "20px" }}>
+          <div style={{ display: "flex", marginTop: "20px"   }}>
             <Note
               // onMouseOver={handleDrawerOpen}
               className="drawerElementsNote"

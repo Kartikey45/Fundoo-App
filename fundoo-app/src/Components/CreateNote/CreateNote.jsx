@@ -3,7 +3,7 @@ import "./CreateNote.scss";
 import TextField from "@material-ui/core/TextField";
 import noteService from "../../Services/noteService";
 
-export default class CreateNote extends React.Component {
+export default class CreateNote extends React.Component{
   constructor(props) {
     super(props);
     this.state = {
@@ -37,6 +37,11 @@ export default class CreateNote extends React.Component {
       console.log(data);
       this.props.getNotes();
     });
+
+    this.setState({
+      title: "",
+      description: "",
+    })
   };
 
   render() {
