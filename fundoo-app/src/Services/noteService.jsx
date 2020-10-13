@@ -33,6 +33,15 @@ class noteService {
       },
     });
   }
+
+  updateNote(data){
+    let url = baseURL + "notes/updateNotes";
+    return this.axiosService.post(url, data, true, {
+      headers: {
+        Authorization: localStorage.getItem("token"),
+      },
+    });
+  }
 }
 
 export default new noteService();

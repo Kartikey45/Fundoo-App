@@ -57,7 +57,6 @@ export default function Dashboard() {
   const history = useHistory();
   const [open, setOpen] = useState(false);
   const [notes, setNotes] = useState([]);
- 
 
   const getNotes = () =>{
     noteService.displayNote().then((data) => {
@@ -241,6 +240,7 @@ export default function Dashboard() {
       </div>
       <CreateNote  getNotes = {()=>{getNotes()}}/>
       <DisplayNote notes = {notes} getNotes = {()=>{getNotes()}}  />
+      {/* <UpdateNote notes = {notes}/> */}
     </div>
   );
 }

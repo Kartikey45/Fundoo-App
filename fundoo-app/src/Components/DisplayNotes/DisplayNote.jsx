@@ -11,6 +11,7 @@ export default class DisplayNote extends React.Component {
     super(props);
     this.state = {
       modalShow : false,
+      currentNote : '',
       // notesData: [],
     }
     // noteService.displayNote().then((data) => {
@@ -19,10 +20,11 @@ export default class DisplayNote extends React.Component {
     // });
   }
 
-  modalOpen(){
+  modalOpen(object){
     console.log(this.state.modalShow)
     this.setState({
-      modalShow : !this.state.modalShow,
+      modalShow : true,
+      currentNote : object,
     });
   }
 
@@ -44,7 +46,7 @@ export default class DisplayNote extends React.Component {
         ""
       ) : (
         <Card className="cardiv" >
-          <div className="titleDiv" onClick= {()=>{this.modalOpen()}} >{element.title}</div>
+          <div className="titleDiv" onClick= {()=>{this.modalOpen(element)}} >{element.title}</div>
           <div className="descriptiondiv">{element.description}</div>
           <div className="deleteIcon">
             <DeleteIcon
@@ -54,7 +56,10 @@ export default class DisplayNote extends React.Component {
           </div>
           <UpdateNote 
           show={this.state.modalShow}
-          onHide={()=>{this.modalOpen()}} />
+          note = {this.state.currentNote}
+          onHide={()=>{this.setState({modalShow : false})} } 
+          getNotes = {()=>{this.props.getNotes()}}
+          />
         </Card>
       )
     );
