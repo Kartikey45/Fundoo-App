@@ -5,6 +5,7 @@ import { Card } from "react-bootstrap";
 import DeleteIcon from "@material-ui/icons/Delete";
 import { Modal, Button } from "react-bootstrap";
 import UpdateNote from "../../Components/UpdateNotes/UpdateNote";
+import IconBar from "../../Components/IconBar/IconBar";
 
 export default class DisplayNote extends React.Component {
   constructor(props) {
@@ -21,7 +22,7 @@ export default class DisplayNote extends React.Component {
   }
 
   modalOpen(object){
-    console.log(this.state.modalShow)
+    //console.log(this.state.modalShow)
     this.setState({
       modalShow : true,
       currentNote : object,
@@ -40,7 +41,7 @@ export default class DisplayNote extends React.Component {
   }
 
   render() {
-    console.log(this.props.notes);
+    // console.log(this.props.notes);
     let card = this.props.notes.map((element) =>
       element.isDeleted ? (
         ""
@@ -49,21 +50,25 @@ export default class DisplayNote extends React.Component {
           <div className="titleDiv" onClick= {()=>{this.modalOpen(element)}} >{element.title}</div>
           <div className="descriptiondiv">{element.description}</div>
           <div className="deleteIcon">
+            <IconBar />
             <DeleteIcon
               type="submit"
               onClick={() => this.onDelete(element.id)}
             />
           </div>
-          <UpdateNote 
+          
+        </Card>
+      )
+    );
+
+    return <div className="displayNoteParent">
+      {card}
+      <UpdateNote 
           show={this.state.modalShow}
           note = {this.state.currentNote}
           onHide={()=>{this.setState({modalShow : false})} } 
           getNotes = {()=>{this.props.getNotes()}}
           />
-        </Card>
-      )
-    );
-
-    return <div className="displayNoteParent">{card}</div>;
+    </div>;
   }
 }

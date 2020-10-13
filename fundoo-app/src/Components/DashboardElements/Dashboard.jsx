@@ -14,8 +14,8 @@ import Drawer from "@material-ui/core/Drawer";
 import CreateNote from "../../Components/CreateNote/CreateNote";
 import { useHistory } from "react-router-dom";
 import DisplayNote from "../../Components/DisplayNotes/DisplayNote";
+//import IconBar from "../../Components/IconBar/IconBar";
 import noteService from "../../Services/noteService";
-import UpdateNote from "../../Components/UpdateNotes/UpdateNote";
 
 
 const drawerWidth = 200;
@@ -240,7 +240,7 @@ export default function Dashboard() {
       </div>
       <CreateNote  getNotes = {()=>{getNotes()}}/>
       <DisplayNote notes = {notes} getNotes = {()=>{getNotes()}}  />
-      {/* <UpdateNote notes = {notes}/> */}
+     
     </div>
   );
 }

@@ -16,7 +16,7 @@ class noteService {
     });
   }
 
-  displayNote(){
+  displayNote() {
     let url = baseURL + "notes/getNotesList";
     return this.axiosService.get(url, true, {
       headers: {
@@ -25,7 +25,7 @@ class noteService {
     });
   }
 
-  trashNote(data){
+  trashNote(data) {
     let url = baseURL + "notes/trashNotes";
     return this.axiosService.post(url, data, true, {
       headers: {
@@ -34,8 +34,17 @@ class noteService {
     });
   }
 
-  updateNote(data){
+  updateNote(data) {
     let url = baseURL + "notes/updateNotes";
+    return this.axiosService.post(url, data, true, {
+      headers: {
+        Authorization: localStorage.getItem("token"),
+      },
+    });
+  }
+
+  updateColor(data) {
+    let url = baseURL + "notes/changesColorNotes";
     return this.axiosService.post(url, data, true, {
       headers: {
         Authorization: localStorage.getItem("token"),
