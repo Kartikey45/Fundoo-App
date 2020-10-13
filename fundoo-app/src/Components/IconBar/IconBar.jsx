@@ -47,17 +47,30 @@ export default function IconBar(props) {
         </Dropdown.Toggle>
         <Dropdown.Menu>
           <Dropdown.Item>
-            <div style={{ display: "flex", flexWrap: "wrap" , width: "100px",
-    height: "100px"}}>
-              <div style={{height : "25px" , width : "25px"}}
+            <div
+              style={{
+                display: "flex",
+                flexWrap: "wrap",
+                width: "100px",
+                height: "100px",
+              }}
+            >
+              <div
+                style={{ height: "25px", width: "25px" }}
                 onClick={() => {
                   changeColor("#ff8080");
                 }}
-                style={{ border: "1px solid red", backgroundColor: "#ff8080", width: "25px",
-                height: "25px" ,     margin: "4px"}}
+                style={{
+                  border: "1px solid red",
+                  backgroundColor: "#ff8080",
+                  width: "25px",
+                  height: "25px",
+                  margin: "4px",
+                }}
                 className="color-chooser"
               ></div>
-              <div style={{height : "25px"}}
+              <div
+                style={{ height: "25px" }}
                 onClick={() => {
                   changeColor("#ff80ff");
                 }}
@@ -65,12 +78,13 @@ export default function IconBar(props) {
                   border: "1px solid purple",
                   backgroundColor: "#ff80ff",
                   width: "25px",
-                height: "25px" ,
-                margin: "4px"
+                  height: "25px",
+                  margin: "4px",
                 }}
                 className="color-chooser"
               ></div>
-              <div style={{height : "25px"}}
+              <div
+                style={{ height: "25px" }}
                 onClick={() => {
                   changeColor("#ffff80");
                 }}
@@ -78,28 +92,41 @@ export default function IconBar(props) {
                   border: "1px solid yellow",
                   backgroundColor: "#ffff80",
                   width: "25px",
-                height: "25px" ,
-                margin: "4px"
+                  height: "25px",
+                  margin: "4px",
                 }}
                 className="color-chooser"
               ></div>
-              <div style={{height : "25px"}}
+              <div
+                style={{ height: "25px" }}
                 onClick={() => {
                   changeColor("#8080ff");
                 }}
-                style={{ border: "1px solid blue", backgroundColor: "#8080ff", width: "25px",
-                height: "25px" ,  margin: "4px" }}
+                style={{
+                  border: "1px solid blue",
+                  backgroundColor: "#8080ff",
+                  width: "25px",
+                  height: "25px",
+                  margin: "4px",
+                }}
                 className="color-chooser"
               ></div>
-              <div style={{height : "25px"}}
+              <div
+                style={{ height: "25px" }}
                 onClick={() => {
                   changeColor("#80ff80");
                 }}
-                style={{ border: "1px solid green", backgroundColor: "#80ff80" , width: "25px",
-                height: "25px",  margin: "4px" }}
+                style={{
+                  border: "1px solid green",
+                  backgroundColor: "#80ff80",
+                  width: "25px",
+                  height: "25px",
+                  margin: "4px",
+                }}
                 className="color-chooser"
               ></div>
-              <div style={{height : "25px"}}
+              <div
+                style={{ height: "25px" }}
                 onClick={() => {
                   changeColor("#ccccb3");
                 }}
@@ -107,12 +134,13 @@ export default function IconBar(props) {
                   border: "1px solid silver",
                   backgroundColor: "#ccccb3",
                   width: "25px",
-                height: "25px" ,
-                margin: "4px"
+                  height: "25px",
+                  margin: "4px",
                 }}
                 className="color-chooser"
               ></div>
-              <div style={{height : "25px"}}
+              <div
+                style={{ height: "25px" }}
                 onClick={() => {
                   changeColor("#FFFFFF");
                 }}
@@ -120,12 +148,13 @@ export default function IconBar(props) {
                   border: "1px solid whitesmoke",
                   backgroundColor: "whitesmoke",
                   width: "25px",
-                height: "25px" ,
-                margin: "4px"
+                  height: "25px",
+                  margin: "4px",
                 }}
                 className="color-chooser"
               ></div>
-              <div style={{height : "25px"}}
+              <div
+                style={{ height: "25px" }}
                 onClick={() => {
                   changeColor("#df9f9f");
                 }}
@@ -133,12 +162,13 @@ export default function IconBar(props) {
                   border: "1px solid maroon",
                   backgroundColor: "#df9f9f",
                   width: "25px",
-                height: "25px" ,
-                margin: "4px"
+                  height: "25px",
+                  margin: "4px",
                 }}
                 className="color-chooser"
               ></div>
-              <div style={{height : "25px"}}
+              <div
+                style={{ height: "25px" }}
                 onClick={() => {
                   changeColor("#80ffbf");
                 }}
@@ -146,8 +176,8 @@ export default function IconBar(props) {
                   border: "1px solid lightblue",
                   backgroundColor: "#80ffbf",
                   width: "25px",
-                height: "25px" ,
-                margin: "4px"
+                  height: "25px",
+                  margin: "4px",
                 }}
                 className="color-chooser"
               ></div>

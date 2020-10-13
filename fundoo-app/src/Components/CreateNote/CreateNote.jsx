@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import "./CreateNote.scss";
 import TextField from "@material-ui/core/TextField";
 import noteService from "../../Services/noteService";
+import IconBar from "../../Components/IconBar/IconBar";
 
 export default class CreateNote extends React.Component{
   constructor(props) {
@@ -74,6 +75,7 @@ export default class CreateNote extends React.Component{
 
             <div className="submitNote">
               {/* <span onClick={this.handleChange}>Close</span> */}
+              <IconBar className = "displayIconBar" />
               <span onClick={this.onSubmit}>Close</span>
             </div>
           </div>

@@ -3,6 +3,13 @@ import "./UpdateNote.scss";
 import { Modal, Button } from "react-bootstrap";
 import noteService from "../../Services/noteService";
 import TextField from "@material-ui/core/TextField";
+import IconBar from "../../Components/IconBar/IconBar";
+// import AddAlertIcon from "@material-ui/icons/AddAlert";
+// import PersonAddIcon from "@material-ui/icons/PersonAdd";
+// import ColorLensIcon from "@material-ui/icons/ColorLens";
+// import { Dropdown } from "react-bootstrap";
+// import { ReactComponent as Archieve } from "../../Images&logos/Archies.svg";
+// import CropOriginalIcon from "@material-ui/icons/CropOriginal";
 
 export default function UpdateNote(props) {
   const [updateTitle, setUpdateTitle] = useState("");
@@ -60,8 +67,11 @@ export default function UpdateNote(props) {
         />
       </Modal.Body>
       <Modal.Footer>
+        {/* <IconBar className = "updateIconBar" /> */}
+        <IconBar/>
         <Button onClick={updateNotes}>Close</Button>
       </Modal.Footer>
     </Modal>
   );
 }
+

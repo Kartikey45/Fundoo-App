@@ -40,7 +40,7 @@
 
 .submitNote{
     display: flex;
-    justify-content: flex-end;
+    justify-content: space-between;
     cursor: pointer;
     font-size: 16px;
     font-weight: 600;
@@ -55,5 +55,9 @@
 .description{
     width: 225%;
     //height: 80px;
+}
+
+.displayIconBar{
+    margin-right: 207px;
 }
 
