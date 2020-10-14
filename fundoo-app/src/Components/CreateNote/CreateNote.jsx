@@ -11,6 +11,7 @@ export default class CreateNote extends React.Component{
       show: true,
       title: "",
       description: "",
+      color : ""
     };
   }
 
@@ -18,11 +19,18 @@ export default class CreateNote extends React.Component{
     this.setState({
       show: !this.state.show,
     });
-  };
+  }; 
 
   onValueChange = (e) => {
     this.setState({
       [e.target.name]: e.target.value,
+    });
+  };
+
+  onColorChange = (newColor) => {
+    console.log("color" + newColor);
+    this.setState({
+       color : newColor
     });
   };
 
@@ -32,6 +40,7 @@ export default class CreateNote extends React.Component{
     let note = {
       title: this.state.title,
       description: this.state.description,
+      color: this.state.color,
     };
 
     noteService.addNote(note).then((data) => {
@@ -42,6 +51,7 @@ export default class CreateNote extends React.Component{
     this.setState({
       title: "",
       description: "",
+      color: "",
     })
   };
 
@@ -56,6 +66,7 @@ export default class CreateNote extends React.Component{
           <div
             className="NoteWithDescriptionANdTitle"
             //  onClick={this.handleChange}
+            style = {{ backgroundColor : this.state.color }}
           >
             <TextField
               id="standard-basic"
@@ -75,7 +86,7 @@ export default class CreateNote extends React.Component{
 
             <div className="submitNote">
               {/* <span onClick={this.handleChange}>Close</span> */}
-              <IconBar className = "displayIconBar" />
+              <IconBar className = "displayIconBar" onColorChange = {(newColor) => {this.onColorChange(newColor)}} />
               <span onClick={this.onSubmit}>Close</span>
             </div>
           </div>

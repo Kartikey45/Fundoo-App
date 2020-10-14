@@ -34,8 +34,8 @@ export default function IconBar(props) {
       className={props.className}
       style={{ display: "flex", justifyContent: "space-between", width: "80%" }}
     >
-      <AddAlertIcon className="icon-design" />
-      <PersonAddIcon className="icon-design" />
+      <AddAlertIcon />
+      <PersonAddIcon  />
       <Dropdown>
         <Dropdown.Toggle
           style={{
@@ -47,7 +47,7 @@ export default function IconBar(props) {
           variant="light"
           id="dropdown-basic"
         >
-          <ColorLensIcon className="icon-design" />
+          <ColorLensIcon  />
         </Dropdown.Toggle>
         <Dropdown.Menu>
           <Dropdown.Item>
@@ -62,7 +62,7 @@ export default function IconBar(props) {
               <div
                 style={{ height: "25px", width: "25px" }}
                 onClick={() => {
-                  changeColor("#ff8080");
+                  changeColor("#ff8080"); props.onColorChange("#ff8080");
                 }}
                 style={{
                   border: "1px solid red",
@@ -71,12 +71,12 @@ export default function IconBar(props) {
                   height: "25px",
                   margin: "4px",
                 }}
-                className="color-chooser"
+               
               ></div>
               <div
                 style={{ height: "25px" }}
                 onClick={() => {
-                  changeColor("#ff80ff");
+                  changeColor("#ff80ff"); props.onColorChange("#ff80ff");
                 }}
                 style={{
                   border: "1px solid purple",
@@ -85,12 +85,12 @@ export default function IconBar(props) {
                   height: "25px",
                   margin: "4px",
                 }}
-                className="color-chooser"
+                
               ></div>
               <div
                 style={{ height: "25px" }}
                 onClick={() => {
-                  changeColor("#ffff80");
+                  changeColor("#ffff80"); props.onColorChange("#ffff80");
                 }}
                 style={{
                   border: "1px solid yellow",
@@ -99,12 +99,12 @@ export default function IconBar(props) {
                   height: "25px",
                   margin: "4px",
                 }}
-                className="color-chooser"
+              
               ></div>
               <div
                 style={{ height: "25px" }}
                 onClick={() => {
-                  changeColor("#8080ff");
+                  changeColor("#8080ff"); props.onColorChange("#8080ff");
                 }}
                 style={{
                   border: "1px solid blue",
@@ -113,12 +113,12 @@ export default function IconBar(props) {
                   height: "25px",
                   margin: "4px",
                 }}
-                className="color-chooser"
+              
               ></div>
               <div
                 style={{ height: "25px" }}
                 onClick={() => {
-                  changeColor("#80ff80");
+                  changeColor("#80ff80"); props.onColorChange("#80ff80");
                 }}
                 style={{
                   border: "1px solid green",
@@ -127,12 +127,12 @@ export default function IconBar(props) {
                   height: "25px",
                   margin: "4px",
                 }}
-                className="color-chooser"
+               
               ></div>
               <div
                 style={{ height: "25px" }}
                 onClick={() => {
-                  changeColor("#ccccb3");
+                  changeColor("#ccccb3"); props.onColorChange("#ccccb3");
                 }}
                 style={{
                   border: "1px solid silver",
@@ -141,12 +141,12 @@ export default function IconBar(props) {
                   height: "25px",
                   margin: "4px",
                 }}
-                className="color-chooser"
+              
               ></div>
               <div
                 style={{ height: "25px" }}
                 onClick={() => {
-                  changeColor("#FFFFFF");
+                  changeColor("#FFFFFF"); props.onColorChange("#FFFFFF");
                 }}
                 style={{
                   border: "1px solid whitesmoke",
@@ -155,12 +155,12 @@ export default function IconBar(props) {
                   height: "25px",
                   margin: "4px",
                 }}
-                className="color-chooser"
+             
               ></div>
               <div
                 style={{ height: "25px" }}
                 onClick={() => {
-                  changeColor("#df9f9f");
+                  changeColor("#df9f9f"); props.onColorChange("#df9f9f");
                 }}
                 style={{
                   border: "1px solid maroon",
@@ -169,12 +169,12 @@ export default function IconBar(props) {
                   height: "25px",
                   margin: "4px",
                 }}
-                className="color-chooser"
+              
               ></div>
               <div
                 style={{ height: "25px" }}
                 onClick={() => {
-                  changeColor("#80ffbf");
+                  changeColor("#80ffbf"); props.onColorChange("#80ffbf");
                 }}
                 style={{
                   border: "1px solid lightblue",
@@ -183,14 +183,14 @@ export default function IconBar(props) {
                   height: "25px",
                   margin: "4px",
                 }}
-                className="color-chooser"
+              
               ></div>
             </div>
           </Dropdown.Item>
         </Dropdown.Menu>
       </Dropdown>
-      <CropOriginalIcon className="icon-design" />
-      <Archieve style={{ fill: "black" }} className="icon-design" />
+      <CropOriginalIcon />
+      <Archieve style={{ fill: "black" }} c/>
     </div>
   );
 }

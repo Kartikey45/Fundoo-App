@@ -3,6 +3,19 @@
   padding: 0;
 }
 
+.modal-footer{
+  border-top: 0px !important;
+  
+}
+
+.modal-header{
+  border-bottom: 0px !important;
+}
+
+.modal-content{
+  border-radius: 9px !important;
+}
+
 .makeStyles-drawerClose-4 {
   width: 73px;
   z-index: 1 !important ;
