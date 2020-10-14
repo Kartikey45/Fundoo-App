@@ -32,13 +32,13 @@ export default function UpdateNote(props) {
   }, [props.note.title, props.note.description]);
 
   return (
-    <Modal 
+    <Modal
       {...props}
       size="md"
       aria-labelledby="contained-modal-title-vcenter"
       centered
     >
-      <Modal.Header closeButton style = {{ backgroundColor : props.note.color }}>
+      <Modal.Header closeButton style={{ backgroundColor: props.note.color }}>
         <Modal.Title id="contained-modal-title-vcenter">
           <TextField
             fullWidth
@@ -50,7 +50,7 @@ export default function UpdateNote(props) {
           />
         </Modal.Title>
       </Modal.Header>
-      <Modal.Body style = {{ backgroundColor : props.note.color }} >
+      <Modal.Body style={{ backgroundColor: props.note.color }}>
         <TextField
           fullWidth
           id="standard-textarea"
@@ -61,13 +61,20 @@ export default function UpdateNote(props) {
           onChange={(event) => setUpdateDescription(event.target.value)}
         />
       </Modal.Body>
-      <Modal.Footer  style = {{ backgroundColor : props.note.color }} >
+      <Modal.Footer style={{ backgroundColor: props.note.color }}>
         {/* <IconBar className = "updateIconBar" /> */}
-        <div style = {{width : "50%" , marginRight: "33%"}}><IconBar onColorChange = {null} /></div>
-        
+        <div style={{ width: "50%", marginRight: "33%" }}>
+          <IconBar
+            onColorChange={null}
+            note={props.note.id}
+            getNotes={() => {
+              props.getNotes();
+            }}
+          />
+        </div>
+
         <Button onClick={updateNotes}>Close</Button>
       </Modal.Footer>
     </Modal>
   );
 }
-
