@@ -51,7 +51,7 @@ export default class DisplayNote extends React.Component {
           <div className="descriptiondiv">{element.description}</div>
           <div className="deleteIcon">
 
-            <IconBar
+            <IconBar onColorChange = {null}
              note = {element.id}
              getNotes = {()=>{this.props.getNotes()}}
              />

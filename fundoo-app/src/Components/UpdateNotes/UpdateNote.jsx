@@ -8,6 +8,7 @@ import IconBar from "../../Components/IconBar/IconBar";
 export default function UpdateNote(props) {
   const [updateTitle, setUpdateTitle] = useState("");
   const [updateDescription, setUpdateDescription] = useState("");
+  //const [updateColor]
 
   const updateNotes = () => {
     let noteData = {
@@ -62,7 +63,7 @@ export default function UpdateNote(props) {
       </Modal.Body>
       <Modal.Footer>
         {/* <IconBar className = "updateIconBar" /> */}
-        <div style = {{width : "50%" , marginRight: "33%"}}><IconBar/></div>
+        <div style = {{width : "50%" , marginRight: "33%"}}><IconBar  /></div>
         
         <Button onClick={updateNotes}>Close</Button>
       </Modal.Footer>
