@@ -46,11 +46,16 @@ export default class DisplayNote extends React.Component {
       element.isDeleted ? (
         ""
       ) : (
-        <Card className="cardiv" >
+        <Card className="cardiv" style ={{ backgroundColor : element.color }} >
           <div className="titleDiv" onClick= {()=>{this.modalOpen(element)}} >{element.title}</div>
           <div className="descriptiondiv">{element.description}</div>
           <div className="deleteIcon">
-            <IconBar />
+
+            <IconBar
+             note = {element.id}
+             getNotes = {()=>{this.props.getNotes()}}
+             />
+
             <DeleteIcon
               type="submit"
               onClick={() => this.onDelete(element.id)}

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import AddAlertIcon from "@material-ui/icons/AddAlert";
 import PersonAddIcon from "@material-ui/icons/PersonAdd";
 import ColorLensIcon from "@material-ui/icons/ColorLens";
@@ -9,22 +9,26 @@ import CropOriginalIcon from "@material-ui/icons/CropOriginal";
 import noteService from "../../Services/noteService";
 
 export default function IconBar(props) {
+  //const [noteColor, setNoteColor] =  useState("");
+
   const changeColor = (color) => {
     console.log(props.notes);
-    const Data = {
+    let Data = {
       color: color,
-      noteIdList: [],
+      noteIdList: [props.note],
     };
 
-    // notesService.updateColor(Data)
-    //   .then((response) => {
-    //     console.log(response);
-    //     props.GetNotes();
-    //   })
-    //   .catch((error) => {
-    //     console.log(error);
-    //   });
+    noteService
+      .updateColor(Data)
+      .then((response) => {
+        console.log(response);
+        props.getNotes();
+      })
+      .catch((error) => {
+        console.log(error);
+      });
   };
+
   return (
     <div
       className={props.className}
