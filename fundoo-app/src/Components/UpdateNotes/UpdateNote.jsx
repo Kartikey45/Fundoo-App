@@ -8,7 +8,7 @@ import IconBar from "../../Components/IconBar/IconBar";
 export default function UpdateNote(props) {
   const [updateTitle, setUpdateTitle] = useState("");
   const [updateDescription, setUpdateDescription] = useState("");
-  //const [updateColor]
+  //const [updateColor, setUpdateColor]
 
   const updateNotes = () => {
     let noteData = {
@@ -32,13 +32,13 @@ export default function UpdateNote(props) {
   }, [props.note.title, props.note.description]);
 
   return (
-    <Modal
+    <Modal 
       {...props}
       size="md"
       aria-labelledby="contained-modal-title-vcenter"
       centered
     >
-      <Modal.Header closeButton>
+      <Modal.Header closeButton style = {{ backgroundColor : props.note.color }}>
         <Modal.Title id="contained-modal-title-vcenter">
           <TextField
             fullWidth
@@ -50,7 +50,7 @@ export default function UpdateNote(props) {
           />
         </Modal.Title>
       </Modal.Header>
-      <Modal.Body>
+      <Modal.Body style = {{ backgroundColor : props.note.color }} >
         <TextField
           fullWidth
           id="standard-textarea"
@@ -61,9 +61,9 @@ export default function UpdateNote(props) {
           onChange={(event) => setUpdateDescription(event.target.value)}
         />
       </Modal.Body>
-      <Modal.Footer>
+      <Modal.Footer  style = {{ backgroundColor : props.note.color }} >
         {/* <IconBar className = "updateIconBar" /> */}
-        <div style = {{width : "50%" , marginRight: "33%"}}><IconBar  /></div>
+        <div style = {{width : "50%" , marginRight: "33%"}}><IconBar onColorChange = {null} /></div>
         
         <Button onClick={updateNotes}>Close</Button>
       </Modal.Footer>
