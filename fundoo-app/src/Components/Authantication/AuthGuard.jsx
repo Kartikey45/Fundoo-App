@@ -1,6 +1,7 @@
 import {Route,Redirect} from 'react-router-dom';
 import React from 'react';
 
+
  function  AuthGuard (props){
     
     if(!(localStorage.getItem("token") === null))
