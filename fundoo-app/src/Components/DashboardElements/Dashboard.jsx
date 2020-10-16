@@ -17,7 +17,6 @@ import DisplayNote from "../../Components/DisplayNotes/DisplayNote";
 //import IconBar from "../../Components/IconBar/IconBar";
 import noteService from "../../Services/noteService";
 
-
 const drawerWidth = 200;
 
 const useStyles = makeStyles((theme) => ({
@@ -58,16 +57,18 @@ export default function Dashboard() {
   const [open, setOpen] = useState(false);
   const [notes, setNotes] = useState([]);
 
-  const getNotes = () =>{
+  const getNotes = () => {
     noteService.displayNote().then((data) => {
       console.log(data.data.data.data);
-      setNotes(  data.data.data.data );
+      setNotes(data.data.data.data);
     });
-  }
+  };
+
+  //const history = useHistory();
 
   useEffect(() => {
     getNotes();
-  }, [] )
+  }, []);
 
   const logOut = () => {
     localStorage.clear();
@@ -126,7 +127,13 @@ export default function Dashboard() {
                 />
               </Dropdown.Toggle>
 
-              <Dropdown.Menu style={{ left: "-223px", top: "70px", boxShadow: "0px 2px 6px 1px rgb(185, 180, 173)" }}>
+              <Dropdown.Menu
+                style={{
+                  left: "-223px",
+                  top: "70px",
+                  boxShadow: "0px 2px 6px 1px rgb(185, 180, 173)",
+                }}
+              >
                 <div className="logout">
                   <div className="logoutinner"></div>
                   <div className="buttonMargin">
@@ -147,7 +154,7 @@ export default function Dashboard() {
 
       <div>
         <Drawer
-          style={{zIndex : "1 !important " }}
+          style={{ zIndex: "1 !important " }}
           variant="permanent"
           classes={{
             paper: clsx({
@@ -156,7 +163,10 @@ export default function Dashboard() {
             }),
           }}
         >
-          <div style={{ display: "flex", marginTop: "20px"   }}>
+          <div
+            style={{ display: "flex", marginTop: "20px" }}
+            onClick={() => history.push("/dashboard/parent")}
+          >
             <Note
               // onMouseOver={handleDrawerOpen}
               className="drawerElementsNote"
@@ -220,7 +230,10 @@ export default function Dashboard() {
               Archieve
             </span>
           </div>
-          <div style={{ display: "flex", marginTop: "30px" }}>
+          <div
+            style={{ display: "flex", marginTop: "30px" }}
+            onClick={() => history.push("/dashboard/trash")}
+          >
             <Trash
               // onMouseOver={handleDrawerOpen}
               className="RemainingdrawerElements"
@@ -238,9 +251,8 @@ export default function Dashboard() {
           </div>
         </Drawer>
       </div>
-      <CreateNote  getNotes = {()=>{getNotes()}}/>
-      <DisplayNote notes = {notes} getNotes = {()=>{getNotes()}}  />
-     
+      {/* <CreateNote  getNotes = {()=>{getNotes()}}/>
+      <DisplayNote notes = {notes} getNotes = {()=>{getNotes()}}  /> */}
     </div>
   );
 }
