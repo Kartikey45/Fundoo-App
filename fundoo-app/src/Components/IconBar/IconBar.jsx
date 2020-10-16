@@ -32,6 +32,21 @@ export default function IconBar(props) {
       });
   };
 
+  const archiveNote = () => {
+    console.log(props.notes);
+    let archiveData = {
+      isArchived: true,
+      noteIdList: [props.note],
+    };
+    noteService.archieveNote(archiveData).then((response) => {
+      console.log(response);
+      props.getNotes();
+    })
+    .catch((error) => {
+      console.log(error);
+    });
+  }
+
   return (
     <div
       className={props.className}
@@ -193,7 +208,9 @@ export default function IconBar(props) {
         </Dropdown.Menu>
       </Dropdown>
       <CropOriginalIcon />
-      <Archieve style={{ fill: "black" }} />
+      <Archieve type="submit"  style={{ fill: "black" }} onClick={() => {
+                  archiveNote();
+                }} />
     </div>
   );
 }

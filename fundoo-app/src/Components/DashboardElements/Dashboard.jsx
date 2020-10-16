@@ -165,7 +165,7 @@ export default function Dashboard() {
         >
           <div
             style={{ display: "flex", marginTop: "20px" }}
-            onClick={() => history.push("/dashboard/parent")}
+            onClick={() => history.push("/dashboard/note")}
           >
             <Note
               // onMouseOver={handleDrawerOpen}

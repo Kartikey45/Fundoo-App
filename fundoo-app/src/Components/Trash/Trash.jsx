@@ -1,5 +1,5 @@
 import React from "react";
-import DisplayNote from "../../Components/DisplayNotes/DisplayNote";
+import DisplayNote from "../DisplayNotes/DisplayNote";
 import noteService from "../../Services/noteService";
 
 export default class Trash extends React.Component {

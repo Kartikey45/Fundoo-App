@@ -6,8 +6,8 @@ import login from "./Components/Login/login";
 import forgetPassword from "./Components/ForgetPassword/forgetPassword";
 import resetPassword from "./Components/ResetPassword/resetPassword";
 import Dashboard from "./Components/DashboardElements/Dashboard";
-import ParentComp from "./Components/ParentComp/ParentComp";
-import Trash from "./Components/DrawerItems/Trash";
+import Note from "./Components/Note/Note";
+import Trash from "./Components/Trash/Trash";
 
 function App() {
   return (
@@ -18,7 +18,7 @@ function App() {
         <Route path="/forgetPass" component={forgetPassword} />
         <Route path="/resetpassword/:token" component={resetPassword} />
         <Route path="/dashboard" component={Dashboard} />
-        <Route path="/dashboard/parent" component={ParentComp} />
+        <Route path="/dashboard/note" component={Note} />
         <Route path="/dashboard/trash" component={Trash} />
       </div>
     </BrowserRouter>

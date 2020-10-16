@@ -34,6 +34,15 @@ class noteService {
     });
   }
 
+  archieveNote(data){
+    let url = baseURL + "notes/archiveNotes";
+    return this.axiosService.post(url, data, true, {
+      headers: {
+        Authorization: localStorage.getItem("token"),
+      },
+    });
+  }
+
   updateNote(data) {
     let url = baseURL + "notes/updateNotes";
     return this.axiosService.post(url, data, true, {

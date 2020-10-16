@@ -1,9 +1,9 @@
 import React from "react";
-import CreateNote from "../../Components/CreateNote/CreateNote";
-import DisplayNote from "../../Components/DisplayNotes/DisplayNote";
+import CreateNote from "../CreateNote/CreateNote";
+import DisplayNote from "../DisplayNotes/DisplayNote";
 import noteService from "../../Services/noteService";
 
-export default class ParentComp extends React.Component {
+export default class Note extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
