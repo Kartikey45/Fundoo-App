@@ -57,7 +57,7 @@ export default class CreateNote extends React.Component{
 
   render() {
     return (
-      <div className="parent">
+      <div className="parent" style = {{ backgroundColor : this.state.color }}>
         {this.state.show ? (
           <div className="showNote" type="submit" onClick={this.handleChange}>
             Take a note...
@@ -66,7 +66,6 @@ export default class CreateNote extends React.Component{
           <div
             className="NoteWithDescriptionANdTitle"
             //  onClick={this.handleChange}
-            style = {{ backgroundColor : this.state.color }}
           >
             <TextField
               id="standard-basic"

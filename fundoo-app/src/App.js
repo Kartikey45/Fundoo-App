@@ -8,6 +8,8 @@ import resetPassword from "./Components/ResetPassword/resetPassword";
 import Dashboard from "./Components/DashboardElements/Dashboard";
 import Note from "./Components/Note/Note";
 import Trash from "./Components/Trash/Trash";
+import Archieve from "./Components/Archieve/Archieve"
+import Auth from "./Components/Authantication/AuthGuard"
 
 function App() {
   return (
@@ -17,9 +19,10 @@ function App() {
         <Route path="/signin" component={login} />
         <Route path="/forgetPass" component={forgetPassword} />
         <Route path="/resetpassword/:token" component={resetPassword} />
-        <Route path="/dashboard" component={Dashboard} />
-        <Route path="/dashboard/note" component={Note} />
-        <Route path="/dashboard/trash" component={Trash} />
+        <Auth path="/dashboard" component={Dashboard} />
+        <Auth path="/dashboard/note" component={Note} />
+        <Auth path="/dashboard/trash" component={Trash} />
+        <Auth path="/dashboard/archieve" component={Archieve} />
       </div>
     </BrowserRouter>
   );

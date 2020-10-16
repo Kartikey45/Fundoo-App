@@ -13,8 +13,8 @@ export default function IconBar(props) {
 
   const changeColor = (color) => {
     console.log(props.notes);
-    if(props.onColorChange !== null ){
-      props.onColorChange(color)
+    if (props.onColorChange !== null) {
+      props.onColorChange(color);
     }
     let Data = {
       color: color,
@@ -38,14 +38,16 @@ export default function IconBar(props) {
       isArchived: true,
       noteIdList: [props.note],
     };
-    noteService.archieveNote(archiveData).then((response) => {
-      console.log(response);
-      props.getNotes();
-    })
-    .catch((error) => {
-      console.log(error);
-    });
-  }
+    noteService
+      .archieveNote(archiveData)
+      .then((response) => {
+        console.log(response);
+        props.getNotes();
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
 
   return (
     <div
@@ -53,7 +55,7 @@ export default function IconBar(props) {
       style={{ display: "flex", justifyContent: "space-between", width: "80%" }}
     >
       <AddAlertIcon />
-      <PersonAddIcon  />
+      <PersonAddIcon />
       <Dropdown>
         <Dropdown.Toggle
           style={{
@@ -65,7 +67,7 @@ export default function IconBar(props) {
           variant="light"
           id="dropdown-basic"
         >
-          <ColorLensIcon  />
+          <ColorLensIcon />
         </Dropdown.Toggle>
         <Dropdown.Menu>
           <Dropdown.Item>
@@ -80,7 +82,7 @@ export default function IconBar(props) {
               <div
                 style={{ height: "25px", width: "25px" }}
                 onClick={() => {
-                  changeColor("#ff8080"); 
+                  changeColor("#ff8080");
                 }}
                 style={{
                   border: "1px solid red",
@@ -89,7 +91,6 @@ export default function IconBar(props) {
                   height: "25px",
                   margin: "4px",
                 }}
-               
               ></div>
               <div
                 style={{ height: "25px" }}
@@ -103,12 +104,11 @@ export default function IconBar(props) {
                   height: "25px",
                   margin: "4px",
                 }}
-                
               ></div>
               <div
                 style={{ height: "25px" }}
                 onClick={() => {
-                  changeColor("#ffff80"); 
+                  changeColor("#ffff80");
                 }}
                 style={{
                   border: "1px solid yellow",
@@ -117,7 +117,6 @@ export default function IconBar(props) {
                   height: "25px",
                   margin: "4px",
                 }}
-              
               ></div>
               <div
                 style={{ height: "25px" }}
@@ -131,12 +130,11 @@ export default function IconBar(props) {
                   height: "25px",
                   margin: "4px",
                 }}
-              
               ></div>
               <div
                 style={{ height: "25px" }}
                 onClick={() => {
-                  changeColor("#80ff80"); 
+                  changeColor("#80ff80");
                 }}
                 style={{
                   border: "1px solid green",
@@ -145,12 +143,11 @@ export default function IconBar(props) {
                   height: "25px",
                   margin: "4px",
                 }}
-               
               ></div>
               <div
                 style={{ height: "25px" }}
                 onClick={() => {
-                  changeColor("#ccccb3"); 
+                  changeColor("#ccccb3");
                 }}
                 style={{
                   border: "1px solid silver",
@@ -159,12 +156,11 @@ export default function IconBar(props) {
                   height: "25px",
                   margin: "4px",
                 }}
-              
               ></div>
               <div
                 style={{ height: "25px" }}
                 onClick={() => {
-                  changeColor("#FFFFFF"); 
+                  changeColor("#FFFFFF");
                 }}
                 style={{
                   border: "1px solid whitesmoke",
@@ -173,12 +169,11 @@ export default function IconBar(props) {
                   height: "25px",
                   margin: "4px",
                 }}
-             
               ></div>
               <div
                 style={{ height: "25px" }}
                 onClick={() => {
-                  changeColor("#df9f9f"); 
+                  changeColor("#df9f9f");
                 }}
                 style={{
                   border: "1px solid maroon",
@@ -187,12 +182,11 @@ export default function IconBar(props) {
                   height: "25px",
                   margin: "4px",
                 }}
-              
               ></div>
               <div
                 style={{ height: "25px" }}
                 onClick={() => {
-                  changeColor("#80ffbf"); 
+                  changeColor("#80ffbf");
                 }}
                 style={{
                   border: "1px solid lightblue",
@@ -201,16 +195,19 @@ export default function IconBar(props) {
                   height: "25px",
                   margin: "4px",
                 }}
-              
               ></div>
             </div>
           </Dropdown.Item>
         </Dropdown.Menu>
       </Dropdown>
       <CropOriginalIcon />
-      <Archieve type="submit"  style={{ fill: "black" }} onClick={() => {
-                  archiveNote();
-                }} />
+      <Archieve
+        type="submit"
+        style={{ fill: "black" }}
+        onClick={() => {
+          archiveNote();
+        }}
+      />
     </div>
   );
 }

@@ -214,7 +214,9 @@ export default function Dashboard() {
               Edit lable
             </span>
           </div>
-          <div style={{ display: "flex", marginTop: "30px" }}>
+          <div style={{ display: "flex", marginTop: "30px"  }}
+          onClick={() => history.push("/dashboard/archieve")}
+          >
             <Archieve
               // onMouseOver={handleDrawerOpen}
               className="RemainingdrawerElements"

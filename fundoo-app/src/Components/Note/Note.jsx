@@ -19,7 +19,7 @@ export default class Note extends React.Component {
     noteService.displayNote().then((data) => {
       console.log(data.data.data.data);
       let filterNote = data.data.data.data.filter(
-        (note) => note.isDeleted === false
+        (note) => note.isDeleted === false && note.isArchived === false
       );
       this.setState({
         notes: filterNote,
@@ -29,7 +29,7 @@ export default class Note extends React.Component {
 
   render() {
     return (
-      <div>
+      <div style={{ overflowY: "scroll", height: "500px" }}>
         <CreateNote
           getNotes={() => {
             this.getNotes();
