@@ -14,6 +14,6 @@ import React from 'react';
     {
         return(<Redirect  to="/signin"  />);
     }
- } 
+ }
 
 export  default  AuthGuard;

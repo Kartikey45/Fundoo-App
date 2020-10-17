@@ -12,12 +12,11 @@ export default function Archieve(props){
       const getNotes = () => {
         noteService.displayNote().then((data) => {
           console.log(data.data.data.data);
-          let filterNote = data.data.data.data.filter((note) => note.isArchived);
+          let filterNote = data.data.data.data.filter((note) => note.isArchived && note.isDeleted === false);
           setNotes(filterNote);
         });
       };
     
-
     return(
         <DisplayNote
         notes={notes}
