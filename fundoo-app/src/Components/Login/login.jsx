@@ -85,7 +85,7 @@ export default class login extends React.Component {
             Open: true,
             Message: "Login Successfull",
           });
-          this.props.history.push("/dashboard")
+          this.props.history.push("/dashboard/note")
         })
         .catch((error) => {
           console.log("Login failed", error);

@@ -20,9 +20,9 @@ export default function Archieve(props){
     return(
         <DisplayNote
         notes={notes}
-        getNotes={() => {
-          this.getNotes();
-        }}
+        // getNotes={() => {
+        //   this.getNotes();
+        // }}
       />
     );
 }

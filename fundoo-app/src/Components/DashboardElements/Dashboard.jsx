@@ -16,6 +16,8 @@ import { useHistory } from "react-router-dom";
 import DisplayNote from "../../Components/DisplayNotes/DisplayNote";
 //import IconBar from "../../Components/IconBar/IconBar";
 import noteService from "../../Services/noteService";
+import SearchDisplayNote from "../Search/SearchDisplayNote";
+import dataServices from "../../Services/dataServices";
 
 const drawerWidth = 200;
 
@@ -56,6 +58,7 @@ export default function Dashboard() {
   const history = useHistory();
   const [open, setOpen] = useState(false);
   const [notes, setNotes] = useState([]);
+  //const [noteSearch , setNoteSearch] = useState("");
 
   const getNotes = () => {
     noteService.displayNote().then((data) => {
@@ -64,7 +67,9 @@ export default function Dashboard() {
     });
   };
 
-  //const history = useHistory();
+  const updateSearchText = (search) => {
+    dataServices.shareData(search);
+  }
 
   useEffect(() => {
     getNotes();
@@ -101,11 +106,12 @@ export default function Dashboard() {
           <span style={{ fontSize: "22px", marginLeft: "-28%" }}>
             FundooNotes
           </span>
-          <div className="searchbar">
-            <SearchIcon style={{ marginBottom: "3px", marginLeft: "-15px" }} />
+          <div className="searchbar"  >
+            <SearchIcon style={{ marginBottom: "3px", marginLeft: "-15px" }} type = "submit" onClick={() => history.push("/dashboard/search")} />
             <input
               type="text"
               placeholder="Search"
+              onChange = {(event) => updateSearchText(event.target.value)}
               style={{
                 textAlign: "center",
                 width: "90%",
@@ -255,6 +261,7 @@ export default function Dashboard() {
       </div>
       {/* <CreateNote  getNotes = {()=>{getNotes()}}/>
       <DisplayNote notes = {notes} getNotes = {()=>{getNotes()}}  /> */}
+      {/* <SearchDisplayNote /> */}
     </div>
   );
 }

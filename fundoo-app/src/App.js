@@ -10,6 +10,7 @@ import Note from "./Components/Note/Note";
 import Trash from "./Components/Trash/Trash";
 import Archieve from "./Components/Archieve/Archieve"
 import Auth from "./Components/Authantication/AuthGuard"
+import SearchDisplayNote from "./Components/Search/SearchDisplayNote";
 
 function App() {
   return (
@@ -23,6 +24,7 @@ function App() {
         <Auth path="/dashboard/note" component={Note} />
         <Auth path="/dashboard/trash" component={Trash} />
         <Auth path="/dashboard/archieve" component={Archieve} />
+        <Auth path="/dashboard/search" component={SearchDisplayNote} />
       </div>
     </BrowserRouter>
   );

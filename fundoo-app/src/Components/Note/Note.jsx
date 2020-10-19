@@ -2,6 +2,7 @@ import React from "react";
 import CreateNote from "../CreateNote/CreateNote";
 import DisplayNote from "../DisplayNotes/DisplayNote";
 import noteService from "../../Services/noteService";
+import SearchDisplayNote from "../Search/SearchDisplayNote";
 
 export default class Note extends React.Component {
   constructor(props) {
@@ -24,8 +25,23 @@ export default class Note extends React.Component {
       this.setState({
         notes: filterNote,
       });
+      // this.searchGetNote();
     });
   };
+
+  // searchGetNote = () => {
+  //     if(!localStorage.getItem("notes") === ""){
+  //       this.setState({
+  //         notes: localStorage.getItem("notes"),
+  //       });
+  //     }
+  //     let filterNote = this.state.notes.filter(
+  //       (note) => note.isDeleted === false && note.isArchived === false
+  //     );
+  //     this.setState({
+  //       notes: filterNote,
+  //     });
+  // }
 
   render() {
     return (

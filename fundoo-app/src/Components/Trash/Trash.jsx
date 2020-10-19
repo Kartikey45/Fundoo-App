@@ -28,9 +28,9 @@ export default class Trash extends React.Component {
     return (
       <DisplayNote
         notes={this.state.notes}
-        getNotes={() => {
-          this.getNotes();
-        }}
+        // getNotes={() => {
+        //   this.getNotes();
+        // }}
       />
     );
   }
